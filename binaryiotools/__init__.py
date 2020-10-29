@@ -119,7 +119,7 @@ class IO:
 		return data
 
 	@property
-	def boolean(self):
+	def boolean(self) -> bool:
 		""" return bool """
 		if self.boolSize == 8:
 			return self.bool8
@@ -130,11 +130,11 @@ class IO:
 		if self.boolSize == 64:
 			return self.bool64
 		raise Exception("Unknown bool size " + str(self.boolSize))
-	
+
 	bool = property(boolean)
 
 	@boolean.setter
-	def boolean(self, ioBool: Union[str, bytearray, IO, int, float]):
+	def boolean(self, ioBool: bool):
 		""" set bool """
 		if self.boolSize == 8:
 			self.bool8 = ioBool
@@ -146,46 +146,46 @@ class IO:
 			self.bool64 = ioBool
 		else:
 			raise Exception("Unknown bool size " + str(self.boolSize))
-	
+
 	bool = boolean.setter(boolean)
 
 	@property
-	def bool8(self) -> Union[str, bytearray, IO, int, float]:
+	def bool8(self) -> bool:
 		""" get bool8 """
 		return self.u8 != 0
 
 	@bool8.setter
-	def bool8(self, ioBool: Union[str, bytearray, IO, int, float]):
+	def bool8(self, ioBool: bool):
 		""" set a bool8 """
 		self.u8 = ioBool
 
 	@property
-	def bool16(self) -> Union[str, bytearray, IO, int, float]:
+	def bool16(self) -> bool:
 		""" get bool16 """
 		return self.u16 != 0
 
 	@bool16.setter
-	def bool16(self, ioBool: Union[str, bytearray, IO, int, float]):
+	def bool16(self, ioBool: bool):
 		""" set bool16 """
 		self.u16 = ioBool
 
 	@property
-	def bool32(self) -> Union[str, bytearray, IO, int, float]:
+	def bool32(self) -> bool:
 		""" get bool32 """
 		return self.u32 != 0
 
 	@bool32.setter
-	def bool32(self, ioBool: Union[str, bytearray, IO, int, float]):
+	def bool32(self, ioBool: bool):
 		""" set bool32 """
 		self.u32 = ioBool
 
 	@property
-	def bool64(self) -> Union[str, bytearray, IO, int, float]:
+	def bool64(self) -> bool:
 		""" get bool64 """
 		return self.u64 != 0
 
 	@bool64.setter
-	def bool64(self, ioBool: Union[str, bytearray, IO, int, float]):
+	def bool64(self, ioBool: bool):
 		""" set bool64 """
 		self.u64 = ioBool
 
@@ -270,14 +270,14 @@ class IO:
 		self.u64 = unsignedQword
 
 	@property
-	def i8(self) -> Union[str, bytearray, IO, int, float]:
+	def i8(self) -> int:
 		""" get an int8 """
 		if self.littleEndian:
 			return self.i8le
 		return self.i8be
 
 	@i8.setter
-	def i8(self, i8: Union[str, bytearray, IO, int, float]):
+	def i8(self, i8: int):
 		""" set an int8 """
 		if self.littleEndian:
 			self.i8le = i8
@@ -285,14 +285,14 @@ class IO:
 			self.i8be = i8
 
 	@property
-	def u8(self) -> Union[str, bytearray, IO, int, float]:
+	def u8(self) -> int:
 		""" get an unsigned int """
 		if self.littleEndian:
 			return self.u8le
 		return self.u8be
 
 	@u8.setter
-	def u8(self, u8: Union[str, bytearray, IO, int, float]):
+	def u8(self, u8: int):
 		""" set an unsigned int """
 		if self.littleEndian:
 			self.u8le = u8
@@ -300,14 +300,14 @@ class IO:
 			self.u8be = u8
 
 	@property
-	def i16(self) -> Union[str, bytearray, IO, int, float]:
+	def i16(self) -> int:
 		""" get an int16 """
 		if self.littleEndian:
 			return self.i16le
 		return self.i16be
 
 	@i16.setter
-	def i16(self, i16: Union[str, bytearray, IO, int, float]):
+	def i16(self, i16: int):
 		""" set an int16 """
 		if self.littleEndian:
 			self.i16le = i16
@@ -315,14 +315,14 @@ class IO:
 			self.i16be = i16
 
 	@property
-	def u16(self) -> Union[str, bytearray, IO, int, float]:
+	def u16(self) -> int:
 		""" get an uint16 """
 		if self.littleEndian:
 			return self.u16le
 		return self.u16be
 
 	@u16.setter
-	def u16(self, u16: Union[str, bytearray, IO, int, float]):
+	def u16(self, u16: int):
 		""" set an unint16 """
 		if self.littleEndian:
 			self.u16le = u16
@@ -330,14 +330,14 @@ class IO:
 			self.u16be = u16
 
 	@property
-	def i32(self) -> Union[str, bytearray, IO, int, float]:
+	def i32(self) -> int:
 		""" get an int32 """
 		if self.littleEndian:
 			return self.i32le
 		return self.i32be
 
 	@i32.setter
-	def i32(self, i32: Union[str, bytearray, IO, int, float]):
+	def i32(self, i32: int):
 		"""set an int32 """
 		if self.littleEndian:
 			self.i32le = i32
@@ -345,14 +345,14 @@ class IO:
 			self.i32be = i32
 
 	@property
-	def u32(self) -> Union[str, bytearray, IO, int, float]:
+	def u32(self) -> int:
 		""" get a uint32 """
 		if self.littleEndian:
 			return self.u32le
 		return self.u32be
 
 	@u32.setter
-	def u32(self, u32: Union[str, bytearray, IO, int, float]):
+	def u32(self, u32: int):
 		""" set a unint32 """
 		if self.littleEndian:
 			self.u32le = u32
@@ -360,14 +360,14 @@ class IO:
 			self.u32be = u32
 
 	@property
-	def i64(self) -> Union[str, bytearray, IO, int, float]:
+	def i64(self) -> int:
 		""" get an int64 """
 		if self.littleEndian:
 			return self.i64le
 		return self.i64be
 
 	@i64.setter
-	def i64(self, i64: Union[str, bytearray, IO, int, float]):
+	def i64(self, i64: int):
 		""" set an int64 """
 		if self.littleEndian:
 			self.i64le = i64
@@ -375,14 +375,14 @@ class IO:
 			self.i64be = i64
 
 	@property
-	def u64(self) -> Union[str, bytearray, IO, int, float]:
+	def u64(self) -> int:
 		""" get a uint64 """
 		if self.littleEndian:
 			return self.u64le
 		return self.u64be
 
 	@u64.setter
-	def u64(self, u64: Union[str, bytearray, IO, int, float]):
+	def u64(self, u64: int):
 		""" set a uint64 """
 		if self.littleEndian:
 			self.u64le = u64
@@ -390,14 +390,14 @@ class IO:
 			self.u64be = u64
 
 	@property
-	def float32(self) -> Union[str, bytearray, IO, int, float]:
+	def float32(self) -> float:
 		""" get a float32 """
 		if self.littleEndian:
 			return self.float32le
 		return self.float32be
 
 	@float32.setter
-	def float32(self, float32: Union[str, bytearray, IO, int, float]):
+	def float32(self, float32: float):
 		""" set a float32 """
 		if self.littleEndian:
 			self.float32le = float32
@@ -405,14 +405,14 @@ class IO:
 			self.float32be = float32
 
 	@property
-	def float64(self) -> Union[str, bytearray, IO, int, float]:
+	def float64(self) -> float:
 		""" get a float64 """
 		if self.littleEndian:
 			return self.float64le
 		return self.float64be
 
 	@float64.setter
-	def float64(self, float64: Union[str, bytearray, IO, int, float]):
+	def float64(self, float64: float):
 		""" set a float64 """
 		if self.littleEndian:
 			self.float64le = float64
@@ -420,222 +420,222 @@ class IO:
 			self.float64be = float64
 
 	@property
-	def u8be(self) -> Union[str, bytearray, IO, int, float]:
+	def u8be(self) -> int:
 		"""	read the next uint8 and advance the index """
 		return self._read(1, ">B")
 
 	@u8be.setter
-	def u8be(self, u8be: Union[str, bytearray, IO, int, float]):
+	def u8be(self, u8be: int):
 		""" set the uint8 """
 		self._write(1, '>B', u8be)
 
 	@property
-	def u8le(self) -> Union[str, bytearray, IO, int, float]:
+	def u8le(self) -> int:
 		"""	read the next uint8 and advance the index """
 		return self._read(1, "<B")
 
 	@u8le.setter
-	def u8le(self, u8le: Union[str, bytearray, IO, int, float]):
+	def u8le(self, u8le: int):
 		""" set the uint8 """
 		self._write(1, '<B', u8le)
 
 	@property
-	def i8le(self) -> Union[str, bytearray, IO, int, float]:
+	def i8le(self) -> int:
 		"""	read the next signed int8 and advance the index """
 		return self._read(1, "<b")
 
 	@i8le.setter
-	def i8le(self, i8le: Union[str, bytearray, IO, int, float]):
+	def i8le(self, i8le: int):
 		""" set the int8 """
 		self._write(1, '<b', i8le)
 
 	@property
-	def i8be(self) -> Union[str, bytearray, IO, int, float]:
+	def i8be(self) -> int:
 		"""	read the next signed int8 and advance the index """
 		return self._read(1, ">b")
 
 	@i8be.setter
-	def i8be(self, i8be: Union[str, bytearray, IO, int, float]):
+	def i8be(self, i8be: int):
 		""" set the int8 """
 		self._write(1, '>b', i8be)
 
 	@property
-	def u16be(self) -> Union[str, bytearray, IO, int, float]:
+	def u16be(self) -> int:
 		"""	read the next uint16 and advance the index """
 		return self._read(2, ">H")
 
 	@u16be.setter
-	def u16be(self, u16be: Union[str, bytearray, IO, int, float]):
+	def u16be(self, u16be: int):
 		""" set the uint16 """
 		self._write(2, '>H', u16be)
 
 	@property
-	def u16le(self) -> Union[str, bytearray, IO, int, float]:
+	def u16le(self) -> int:
 		"""	read the next uint16 and advance the index """
 		return self._read(2, "<H")
 
 	@u16le.setter
-	def u16le(self, u16le: Union[str, bytearray, IO, int, float]):
+	def u16le(self, u16le: int):
 		""" set the uint16 """
 		self._write(2, '<H', u16le)
 
 	@property
-	def i16le(self) -> Union[str, bytearray, IO, int, float]:
+	def i16le(self) -> int:
 		"""	read the next signed int16 and advance the index """
 		return self._read(2, "<h")
 
 	@i16le.setter
-	def i16le(self, i16le: Union[str, bytearray, IO, int, float]):
+	def i16le(self, i16le: int):
 		""" set the int16 """
 		self._write(2, '<h', i16le)
 
 	@property
-	def i16be(self) -> Union[str, bytearray, IO, int, float]:
+	def i16be(self) -> int:
 		""" read the next signed int16 and advance the index """
 		return self._read(2, ">h")
 
 	@i16be.setter
-	def i16be(self, i16be: Union[str, bytearray, IO, int, float]):
+	def i16be(self, i16be: int):
 		""" set the int16 """
 		self._write(2, '>h', i16be)
 
 	@property
-	def u32be(self) -> Union[str, bytearray, IO, int, float]:
+	def u32be(self) -> int:
 		"""	read the next uint32 and advance the index """
 		return self._read(4, ">I")
 
 	@u32be.setter
-	def u32be(self, u32be: Union[str, bytearray, IO, int, float]):
+	def u32be(self, u32be: int):
 		""" set the uint32 """
 		self._write(4, '>I', u32be)
 
 	@property
-	def u32le(self) -> Union[str, bytearray, IO, int, float]:
+	def u32le(self) -> int:
 		"""	read the next uint32 and advance the index """
 		return self._read(4, "<I")
 
 	@u32le.setter
-	def u32le(self, u32le: Union[str, bytearray, IO, int, float]):
+	def u32le(self, u32le: int):
 		""" set the uint32 """
 		self._write(4, '<I', u32le)
 
 	@property
-	def i32le(self) -> Union[str, bytearray, IO, int, float]:
+	def i32le(self) -> int:
 		"""	read the next signed int32 and advance the index """
 		return self._read(4, "<i")
 
 	@i32le.setter
-	def i32le(self, i32le: Union[str, bytearray, IO, int, float]):
+	def i32le(self, i32le: int):
 		""" set the int32 """
 		self._write(4, '<i', i32le)
 
 	@property
-	def i32be(self) -> Union[str, bytearray, IO, int, float]:
+	def i32be(self) -> int:
 		"""	read the next signed int32 and advance the index """
 		return self._read(4, ">i")
 
 	@i32be.setter
-	def i32be(self, i32be: Union[str, bytearray, IO, int, float]):
+	def i32be(self, i32be: int):
 		""" set the int32 """
 		self._write(4, '>i', i32be)
 
 	@property
-	def u64be(self) -> Union[str, bytearray, IO, int, float]:
+	def u64be(self) -> int:
 		"""	read the next uint64 and advance the index """
 		return self._read(8, ">Q")
 
 	@u64be.setter
-	def u64be(self, u64be: Union[str, bytearray, IO, int, float]):
+	def u64be(self, u64be: int):
 		""" set the uint64 """
 		self._write(8, '>Q', u64be)
 
 	@property
-	def u64le(self) -> Union[str, bytearray, IO, int, float]:
+	def u64le(self) -> int:
 		"""	read the next uint64 and advance the index """
 		return self._read(8, "<Q")
 
 	@u64le.setter
-	def u64le(self, u64le: Union[str, bytearray, IO, int, float]):
+	def u64le(self, u64le: int):
 		""" set the uint64 """
 		self._write(8, '<Q', u64le)
 
 	@property
-	def i64le(self) -> Union[str, bytearray, IO, int, float]:
+	def i64le(self) -> int:
 		""" read the next signed int64 and advance the index """
 		return self._read(8, "<q")
 
 	@i64le.setter
-	def i64le(self, i64le: Union[str, bytearray, IO, int, float]):
+	def i64le(self, i64le: int):
 		""" set the int64 """
 		self._write(8, '<q', i64le)
 
 	@property
-	def i64be(self) -> Union[str, bytearray, IO, int, float]:
+	def i64be(self) -> int:
 		"""	read the next signed int64 and advance the index """
 		return self._read(8, ">q")
 
 	@i64be.setter
-	def i64be(self, i64be: Union[str, bytearray, IO, int, float]):
+	def i64be(self, i64be: int):
 		""" set the int64 """
 		self._write(8, '>q', i64be)
 
 	@property
-	def floating(self) -> Union[str, bytearray, IO, int, float]:
+	def floating(self) -> float:
 		""" get a float """
 		return self.float32
 
 	@floating.setter
-	def floating(self, floating: Union[str, bytearray, IO, int, float]):
+	def floating(self, floating: float):
 		""" set a float """
 		self.float32 = floating
 
 	@property
-	def double(self) -> Union[str, bytearray, IO, int, float]:
+	def double(self) -> float:
 		""" get a double """
 		return self.float64
 
 	@double.setter
-	def double(self, floating: Union[str, bytearray, IO, int, float]):
+	def double(self, floating: float):
 		""" set a double """
 		self.float64 = floating
 
 	@property
-	def float32be(self) -> Union[str, bytearray, IO, int, float]:
+	def float32be(self) -> float:
 		"""	read the next 32 bit float and advance the index """
 		return self._read(4, ">f")
 
 	@float32be.setter
-	def float32be(self, float32be: Union[str, bytearray, IO, int, float]):
+	def float32be(self, float32be: float):
 		""" set a 32 bit float """
 		self._write(4, '>f', float32be)
 
 	@property
-	def float32le(self) -> Union[str, bytearray, IO, int, float]:
+	def float32le(self) -> float:
 		"""	read the next 32 bit float and advance the index """
 		return self._read(4, "<f")
 
 	@float32le.setter
-	def float32le(self, float32le: Union[str, bytearray, IO, int, float]):
+	def float32le(self, float32le: float):
 		""" set a 32 bit float """
 		self._write(4, '<f', float32le)
 
 	@property
-	def float64be(self) -> Union[str, bytearray, IO, int, float]:
+	def float64be(self) -> float:
 		"""	read the next 64 bit float and advance the index """
 		return self._read(8, ">d")
 
 	@float64be.setter
-	def float64be(self, float64be: Union[str, bytearray, IO, int, float]):
+	def float64be(self, float64be: float):
 		""" set a 64 bit float """
 		self._write(8, '>d', float64be)
 
 	@property
-	def float64le(self) -> Union[str, bytearray, IO, int, float]:
+	def float64le(self) -> float:
 		"""	read the next 64 bit float and advance the index """
 		return self._read(8, "<d")
 
 	@float64le.setter
-	def float64le(self, float64le: Union[str, bytearray, IO, int, float]):
+	def float64le(self, float64le: float):
 		""" set a 64 bit float """
 		self._write(8, '<d', float64le)
 
@@ -749,7 +749,7 @@ class IO:
 		'''set sz754U'''
 		return self._sz754set(sz754, 'U')
 
-	def _readUntil(self, until: Union[str, bytearray, IO, int, float], encoding: str='A') -> str:
+	def _readUntil(self, until: str, encoding: str='A') -> str:
 		"""
 		Read a sequence of chars in a set encoding until a set char
 
@@ -765,7 +765,7 @@ class IO:
 			encoding = 'UCS-2'
 		else:
 			raise Exception('bogus encoding')
-		until = until.encode('ascii')[0] # always ascii
+		untilB = until.encode('ascii')[0] # always ascii
 		while True:
 			char = self.data[self.index]
 			self.index += 1
@@ -773,13 +773,13 @@ class IO:
 				data.append(char)
 				char = self.data[self.index]
 				self.index += 1
-			if char == until:
+			if char == untilB:
 				break
 			data.append(char)
 		return bytes(data).decode(encoding, errors='replace')
 
 	@property
-	def textLine(self) -> Union[str, bytearray, IO, int, float]:
+	def textLine(self) -> str:
 		'''Read a sequence of chars until the next new line char'''
 		ret = self._readUntil('\n', self.stringEncoding)
 		if ret[-1] == '\r':
@@ -787,14 +787,14 @@ class IO:
 		return ret
 
 	@textLine.setter
-	def textLine(self, text: Union[str, bytearray, IO, int, float]):
+	def textLine(self, text: str):
 		'''Set a sequence of chars until the next new line char'''
 		self.setBytes(text)
 		if isinstance(text, (int, float)) or text[-1] != '\n':
 			self.setBytes('\n')
 
 	@property
-	def textLineA(self) -> Union[str, bytearray, IO, int, float]:
+	def textLineA(self) -> str:
 		'''Read a sequence of chars until the next new line char in ascii'''
 		ret = self._readUntil('\n', 'A')
 		if ret[-1] == '\r':
@@ -802,14 +802,14 @@ class IO:
 		return ret
 
 	@textLineA.setter
-	def textLineA(self, text: Union[str, bytearray, IO, int, float]):
+	def textLineA(self, text: str):
 		'''Set a sequence of chars until the next new line char in ascii'''
 		self.setBytes(text)
 		if isinstance(text, (int, float)) or text[-1] != '\n':
 			self.setBytes('\n')
 
 	@property
-	def textLineW(self) -> Union[str, bytearray, IO, int, float]:
+	def textLineW(self) -> str:
 		'''Read a sequence of chars until the next new line char in ucs-2'''
 		ret = self._readUntil('\n', 'W')
 		if ret[-1] == '\r':
@@ -817,14 +817,14 @@ class IO:
 		return ret
 
 	@textLineW.setter
-	def textLineW(self, text: Union[str, bytearray, IO, int, float]):
+	def textLineW(self, text: str):
 		'''Set a sequence of chars until the next new line char in ucs-2'''
 		self.setBytes(text)
 		if isinstance(text, (int, float)) or text[-1] != '\n':
 			self.setBytes('\0\n')
 
 	@property
-	def textLineU(self) -> Union[str, bytearray, IO, int, float]:
+	def textLineU(self) -> str:
 		'''Read a sequence of chars until the next new line char in utf-8'''
 		ret = self._readUntil('\n', 'U')
 		if ret[-1] == '\r':
@@ -832,52 +832,52 @@ class IO:
 		return ret
 
 	@textLineU.setter
-	def textLineU(self, text: Union[str, bytearray, IO, int, float]):
+	def textLineU(self, text: str):
 		'''Set a sequence of chars until the next new line char in utf-8'''
 		self.setBytes(text)
 		if isinstance(text, (int, float)) or text[-1] != '\n':
 			self.setBytes('\n')
 
 	@property
-	def cString(self) -> Union[str, bytearray, IO, int, float]:
+	def cString(self) -> str:
 		'''Read a sequence of chars until the next null byte'''
 		return self._readUntil('\0', self.stringEncoding)
 
 	@cString.setter
-	def cString(self, text: Union[str, bytearray, IO, int, float]):
+	def cString(self, text: str):
 		"""Set a sequence of chars and add a null byte """
 		self.setBytes(text)
 		self.setBytes('\0')
 
 	@property
-	def cStringA(self) -> Union[str, bytearray, IO, int, float]:
+	def cStringA(self) -> str:
 		'''Read a sequence of chars until the next null byte in ascii'''
 		return self._readUntil('\0', 'A')
 
 	@cStringA.setter
-	def cStringA(self, text: Union[str, bytearray, IO, int, float]):
+	def cStringA(self, text: str):
 		"""Set a sequence of chars and add a null byte in ascii"""
 		self.setBytes(text)
 		self.setBytes('\0')
 
 	@property
-	def cStringW(self) -> Union[str, bytearray, IO, int, float]:
+	def cStringW(self) -> str:
 		'''Read a sequence of chars until the next null byte in ucs-2'''
 		return self._readUntil('\0', 'W')
 
 	@cStringW.setter
-	def cStringW(self, text: Union[str, bytearray, IO, int, float]):
+	def cStringW(self, text: str):
 		"""Set a sequence of chars and add a null byte in ucs-2"""
 		self.setBytes(text)
 		self.setBytes('\0\0')
 
 	@property
-	def cStringU(self) -> Union[str, bytearray, IO, int, float]:
+	def cStringU(self) -> str:
 		'''Read a sequence of chars until the next null byte in utf-8'''
 		return self._readUntil('\0', 'U')
 
 	@cStringU.setter
-	def cStringU(self, text: Union[str, bytearray, IO, int, float]):
+	def cStringU(self, text: str):
 		"""Set a sequence of chars and add a null byte in utf-8"""
 		self.setBytes(text)
 		self.setBytes('\0')

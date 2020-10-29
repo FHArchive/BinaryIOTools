@@ -175,7 +175,7 @@ Class to handle i/o to a byte buffer or file-like object
 
 ### IO().addBytes
 
-[[find in source code]](../../binaryiotools/__init__.py#L646)
+[[find in source code]](../../binaryiotools/__init__.py#L650)
 
 ```python
 def addBytes(ioBytes: Union[(str, bytearray, IO, int, float)]):
@@ -202,88 +202,88 @@ and when endContext() is called, it will be restored to the current position
 
 ### IO().bool16
 
-[[find in source code]](../../binaryiotools/__init__.py#L158)
+[[find in source code]](../../binaryiotools/__init__.py#L162)
 
 ```python
 @property
-def bool16() -> Union[(str, bytearray, IO, int, float)]:
+def bool16() -> bool:
 ```
 
 get bool16
 
 ### IO().bool16
 
-[[find in source code]](../../binaryiotools/__init__.py#L163)
+[[find in source code]](../../binaryiotools/__init__.py#L167)
 
 ```python
 @bool16.setter
-def bool16(ioBool: Union[(str, bytearray, IO, int, float)]):
+def bool16(ioBool: bool):
 ```
 
 set bool16
 
 ### IO().bool32
 
-[[find in source code]](../../binaryiotools/__init__.py#L168)
+[[find in source code]](../../binaryiotools/__init__.py#L172)
 
 ```python
 @property
-def bool32() -> Union[(str, bytearray, IO, int, float)]:
+def bool32() -> bool:
 ```
 
 get bool32
 
 ### IO().bool32
 
-[[find in source code]](../../binaryiotools/__init__.py#L173)
+[[find in source code]](../../binaryiotools/__init__.py#L177)
 
 ```python
 @bool32.setter
-def bool32(ioBool: Union[(str, bytearray, IO, int, float)]):
+def bool32(ioBool: bool):
 ```
 
 set bool32
 
 ### IO().bool64
 
-[[find in source code]](../../binaryiotools/__init__.py#L178)
+[[find in source code]](../../binaryiotools/__init__.py#L182)
 
 ```python
 @property
-def bool64() -> Union[(str, bytearray, IO, int, float)]:
+def bool64() -> bool:
 ```
 
 get bool64
 
 ### IO().bool64
 
-[[find in source code]](../../binaryiotools/__init__.py#L183)
+[[find in source code]](../../binaryiotools/__init__.py#L187)
 
 ```python
 @bool64.setter
-def bool64(ioBool: Union[(str, bytearray, IO, int, float)]):
+def bool64(ioBool: bool):
 ```
 
 set bool64
 
 ### IO().bool8
 
-[[find in source code]](../../binaryiotools/__init__.py#L148)
+[[find in source code]](../../binaryiotools/__init__.py#L152)
 
 ```python
 @property
-def bool8() -> Union[(str, bytearray, IO, int, float)]:
+def bool8() -> bool:
 ```
 
 get bool8
 
 ### IO().bool8
 
-[[find in source code]](../../binaryiotools/__init__.py#L153)
+[[find in source code]](../../binaryiotools/__init__.py#L157)
 
 ```python
 @bool8.setter
-def bool8(ioBool: Union[(str, bytearray, IO, int, float)]):
+def bool8(ioBool: bool):
 ```
 
 set a bool8
@@ -294,25 +294,25 @@ set a bool8
 
 ```python
 @property
-def boolean():
+def boolean() -> bool:
 ```
 
 return bool
 
 ### IO().boolean
 
-[[find in source code]](../../binaryiotools/__init__.py#L134)
+[[find in source code]](../../binaryiotools/__init__.py#L136)
 
 ```python
 @boolean.setter
-def boolean(ioBool: Union[(str, bytearray, IO, int, float)]):
+def boolean(ioBool: bool):
 ```
 
 set bool
 
 ### IO().byte
 
-[[find in source code]](../../binaryiotools/__init__.py#L188)
+[[find in source code]](../../binaryiotools/__init__.py#L192)
 
 ```python
 @property
@@ -323,7 +323,7 @@ get byte
 
 ### IO().byte
 
-[[find in source code]](../../binaryiotools/__init__.py#L193)
+[[find in source code]](../../binaryiotools/__init__.py#L197)
 
 ```python
 @byte.setter
@@ -334,88 +334,88 @@ set byte
 
 ### IO().cString
 
-[[find in source code]](../../binaryiotools/__init__.py#L837)
+[[find in source code]](../../binaryiotools/__init__.py#L841)
 
 ```python
 @property
-def cString() -> Union[(str, bytearray, IO, int, float)]:
+def cString() -> str:
 ```
 
 Read a sequence of chars until the next null byte
 
 ### IO().cString
 
-[[find in source code]](../../binaryiotools/__init__.py#L842)
+[[find in source code]](../../binaryiotools/__init__.py#L846)
 
 ```python
 @cString.setter
-def cString(text: Union[(str, bytearray, IO, int, float)]):
+def cString(text: str):
 ```
 
 Set a sequence of chars and add a null byte
 
 ### IO().cStringA
 
-[[find in source code]](../../binaryiotools/__init__.py#L848)
+[[find in source code]](../../binaryiotools/__init__.py#L852)
 
 ```python
 @property
-def cStringA() -> Union[(str, bytearray, IO, int, float)]:
+def cStringA() -> str:
 ```
 
 Read a sequence of chars until the next null byte in ascii
 
 ### IO().cStringA
 
-[[find in source code]](../../binaryiotools/__init__.py#L853)
+[[find in source code]](../../binaryiotools/__init__.py#L857)
 
 ```python
 @cStringA.setter
-def cStringA(text: Union[(str, bytearray, IO, int, float)]):
+def cStringA(text: str):
 ```
 
 Set a sequence of chars and add a null byte in ascii
 
 ### IO().cStringU
 
-[[find in source code]](../../binaryiotools/__init__.py#L870)
+[[find in source code]](../../binaryiotools/__init__.py#L874)
 
 ```python
 @property
-def cStringU() -> Union[(str, bytearray, IO, int, float)]:
+def cStringU() -> str:
 ```
 
 Read a sequence of chars until the next null byte in utf-8
 
 ### IO().cStringU
 
-[[find in source code]](../../binaryiotools/__init__.py#L875)
+[[find in source code]](../../binaryiotools/__init__.py#L879)
 
 ```python
 @cStringU.setter
-def cStringU(text: Union[(str, bytearray, IO, int, float)]):
+def cStringU(text: str):
 ```
 
 Set a sequence of chars and add a null byte in utf-8
 
 ### IO().cStringW
 
-[[find in source code]](../../binaryiotools/__init__.py#L859)
+[[find in source code]](../../binaryiotools/__init__.py#L863)
 
 ```python
 @property
-def cStringW() -> Union[(str, bytearray, IO, int, float)]:
+def cStringW() -> str:
 ```
 
 Read a sequence of chars until the next null byte in ucs-2
 
 ### IO().cStringW
 
-[[find in source code]](../../binaryiotools/__init__.py#L864)
+[[find in source code]](../../binaryiotools/__init__.py#L868)
 
 ```python
 @cStringW.setter
-def cStringW(text: Union[(str, bytearray, IO, int, float)]):
+def cStringW(text: str):
 ```
 
 Set a sequence of chars and add a null byte in ucs-2
@@ -444,29 +444,29 @@ set data
 
 ### IO().double
 
-[[find in source code]](../../binaryiotools/__init__.py#L588)
+[[find in source code]](../../binaryiotools/__init__.py#L592)
 
 ```python
 @property
-def double() -> Union[(str, bytearray, IO, int, float)]:
+def double() -> float:
 ```
 
 get a double
 
 ### IO().double
 
-[[find in source code]](../../binaryiotools/__init__.py#L593)
+[[find in source code]](../../binaryiotools/__init__.py#L597)
 
 ```python
 @double.setter
-def double(floating: Union[(str, bytearray, IO, int, float)]):
+def double(floating: float):
 ```
 
 set a double
 
 ### IO().dword
 
-[[find in source code]](../../binaryiotools/__init__.py#L228)
+[[find in source code]](../../binaryiotools/__init__.py#L232)
 
 ```python
 @property
@@ -477,7 +477,7 @@ get a dword
 
 ### IO().dword
 
-[[find in source code]](../../binaryiotools/__init__.py#L233)
+[[find in source code]](../../binaryiotools/__init__.py#L237)
 
 ```python
 @dword.setter
@@ -499,161 +499,161 @@ beginContext() was called
 
 ### IO().float32
 
-[[find in source code]](../../binaryiotools/__init__.py#L388)
+[[find in source code]](../../binaryiotools/__init__.py#L392)
 
 ```python
 @property
-def float32() -> Union[(str, bytearray, IO, int, float)]:
+def float32() -> float:
 ```
 
 get a float32
 
 ### IO().float32
 
-[[find in source code]](../../binaryiotools/__init__.py#L395)
+[[find in source code]](../../binaryiotools/__init__.py#L399)
 
 ```python
 @float32.setter
-def float32(float32: Union[(str, bytearray, IO, int, float)]):
+def float32(float32: float):
 ```
 
 set a float32
 
 ### IO().float32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L598)
+[[find in source code]](../../binaryiotools/__init__.py#L602)
 
 ```python
 @property
-def float32be() -> Union[(str, bytearray, IO, int, float)]:
+def float32be() -> float:
 ```
 
 read the next 32 bit float and advance the index
 
 ### IO().float32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L603)
+[[find in source code]](../../binaryiotools/__init__.py#L607)
 
 ```python
 @float32be.setter
-def float32be(float32be: Union[(str, bytearray, IO, int, float)]):
+def float32be(float32be: float):
 ```
 
 set a 32 bit float
 
 ### IO().float32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L608)
+[[find in source code]](../../binaryiotools/__init__.py#L612)
 
 ```python
 @property
-def float32le() -> Union[(str, bytearray, IO, int, float)]:
+def float32le() -> float:
 ```
 
 read the next 32 bit float and advance the index
 
 ### IO().float32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L613)
+[[find in source code]](../../binaryiotools/__init__.py#L617)
 
 ```python
 @float32le.setter
-def float32le(float32le: Union[(str, bytearray, IO, int, float)]):
+def float32le(float32le: float):
 ```
 
 set a 32 bit float
 
 ### IO().float64
 
-[[find in source code]](../../binaryiotools/__init__.py#L403)
+[[find in source code]](../../binaryiotools/__init__.py#L407)
 
 ```python
 @property
-def float64() -> Union[(str, bytearray, IO, int, float)]:
+def float64() -> float:
 ```
 
 get a float64
 
 ### IO().float64
 
-[[find in source code]](../../binaryiotools/__init__.py#L410)
+[[find in source code]](../../binaryiotools/__init__.py#L414)
 
 ```python
 @float64.setter
-def float64(float64: Union[(str, bytearray, IO, int, float)]):
+def float64(float64: float):
 ```
 
 set a float64
 
 ### IO().float64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L618)
+[[find in source code]](../../binaryiotools/__init__.py#L622)
 
 ```python
 @property
-def float64be() -> Union[(str, bytearray, IO, int, float)]:
+def float64be() -> float:
 ```
 
 read the next 64 bit float and advance the index
 
 ### IO().float64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L623)
+[[find in source code]](../../binaryiotools/__init__.py#L627)
 
 ```python
 @float64be.setter
-def float64be(float64be: Union[(str, bytearray, IO, int, float)]):
+def float64be(float64be: float):
 ```
 
 set a 64 bit float
 
 ### IO().float64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L628)
+[[find in source code]](../../binaryiotools/__init__.py#L632)
 
 ```python
 @property
-def float64le() -> Union[(str, bytearray, IO, int, float)]:
+def float64le() -> float:
 ```
 
 read the next 64 bit float and advance the index
 
 ### IO().float64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L633)
+[[find in source code]](../../binaryiotools/__init__.py#L637)
 
 ```python
 @float64le.setter
-def float64le(float64le: Union[(str, bytearray, IO, int, float)]):
+def float64le(float64le: float):
 ```
 
 set a 64 bit float
 
 ### IO().floating
 
-[[find in source code]](../../binaryiotools/__init__.py#L578)
+[[find in source code]](../../binaryiotools/__init__.py#L582)
 
 ```python
 @property
-def floating() -> Union[(str, bytearray, IO, int, float)]:
+def floating() -> float:
 ```
 
 get a float
 
 ### IO().floating
 
-[[find in source code]](../../binaryiotools/__init__.py#L583)
+[[find in source code]](../../binaryiotools/__init__.py#L587)
 
 ```python
 @floating.setter
-def floating(floating: Union[(str, bytearray, IO, int, float)]):
+def floating(floating: float):
 ```
 
 set a float
 
 ### IO().getBytes
 
-[[find in source code]](../../binaryiotools/__init__.py#L638)
+[[find in source code]](../../binaryiotools/__init__.py#L642)
 
 ```python
 def getBytes(nbytes: int):
@@ -663,264 +663,264 @@ grab some raw bytes and advance the index
 
 ### IO().i16
 
-[[find in source code]](../../binaryiotools/__init__.py#L298)
+[[find in source code]](../../binaryiotools/__init__.py#L302)
 
 ```python
 @property
-def i16() -> Union[(str, bytearray, IO, int, float)]:
+def i16() -> int:
 ```
 
 get an int16
 
 ### IO().i16
 
-[[find in source code]](../../binaryiotools/__init__.py#L305)
+[[find in source code]](../../binaryiotools/__init__.py#L309)
 
 ```python
 @i16.setter
-def i16(i16: Union[(str, bytearray, IO, int, float)]):
+def i16(i16: int):
 ```
 
 set an int16
 
 ### IO().i16be
 
-[[find in source code]](../../binaryiotools/__init__.py#L488)
+[[find in source code]](../../binaryiotools/__init__.py#L492)
 
 ```python
 @property
-def i16be() -> Union[(str, bytearray, IO, int, float)]:
+def i16be() -> int:
 ```
 
 read the next signed int16 and advance the index
 
 ### IO().i16be
 
-[[find in source code]](../../binaryiotools/__init__.py#L493)
+[[find in source code]](../../binaryiotools/__init__.py#L497)
 
 ```python
 @i16be.setter
-def i16be(i16be: Union[(str, bytearray, IO, int, float)]):
+def i16be(i16be: int):
 ```
 
 set the int16
 
 ### IO().i16le
 
-[[find in source code]](../../binaryiotools/__init__.py#L478)
+[[find in source code]](../../binaryiotools/__init__.py#L482)
 
 ```python
 @property
-def i16le() -> Union[(str, bytearray, IO, int, float)]:
+def i16le() -> int:
 ```
 
 read the next signed int16 and advance the index
 
 ### IO().i16le
 
-[[find in source code]](../../binaryiotools/__init__.py#L483)
+[[find in source code]](../../binaryiotools/__init__.py#L487)
 
 ```python
 @i16le.setter
-def i16le(i16le: Union[(str, bytearray, IO, int, float)]):
+def i16le(i16le: int):
 ```
 
 set the int16
 
 ### IO().i32
 
-[[find in source code]](../../binaryiotools/__init__.py#L328)
+[[find in source code]](../../binaryiotools/__init__.py#L332)
 
 ```python
 @property
-def i32() -> Union[(str, bytearray, IO, int, float)]:
+def i32() -> int:
 ```
 
 get an int32
 
 ### IO().i32
 
-[[find in source code]](../../binaryiotools/__init__.py#L335)
+[[find in source code]](../../binaryiotools/__init__.py#L339)
 
 ```python
 @i32.setter
-def i32(i32: Union[(str, bytearray, IO, int, float)]):
+def i32(i32: int):
 ```
 
 set an int32
 
 ### IO().i32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L528)
+[[find in source code]](../../binaryiotools/__init__.py#L532)
 
 ```python
 @property
-def i32be() -> Union[(str, bytearray, IO, int, float)]:
+def i32be() -> int:
 ```
 
 read the next signed int32 and advance the index
 
 ### IO().i32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L533)
+[[find in source code]](../../binaryiotools/__init__.py#L537)
 
 ```python
 @i32be.setter
-def i32be(i32be: Union[(str, bytearray, IO, int, float)]):
+def i32be(i32be: int):
 ```
 
 set the int32
 
 ### IO().i32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L518)
+[[find in source code]](../../binaryiotools/__init__.py#L522)
 
 ```python
 @property
-def i32le() -> Union[(str, bytearray, IO, int, float)]:
+def i32le() -> int:
 ```
 
 read the next signed int32 and advance the index
 
 ### IO().i32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L523)
+[[find in source code]](../../binaryiotools/__init__.py#L527)
 
 ```python
 @i32le.setter
-def i32le(i32le: Union[(str, bytearray, IO, int, float)]):
+def i32le(i32le: int):
 ```
 
 set the int32
 
 ### IO().i64
 
-[[find in source code]](../../binaryiotools/__init__.py#L358)
+[[find in source code]](../../binaryiotools/__init__.py#L362)
 
 ```python
 @property
-def i64() -> Union[(str, bytearray, IO, int, float)]:
+def i64() -> int:
 ```
 
 get an int64
 
 ### IO().i64
 
-[[find in source code]](../../binaryiotools/__init__.py#L365)
+[[find in source code]](../../binaryiotools/__init__.py#L369)
 
 ```python
 @i64.setter
-def i64(i64: Union[(str, bytearray, IO, int, float)]):
+def i64(i64: int):
 ```
 
 set an int64
 
 ### IO().i64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L568)
+[[find in source code]](../../binaryiotools/__init__.py#L572)
 
 ```python
 @property
-def i64be() -> Union[(str, bytearray, IO, int, float)]:
+def i64be() -> int:
 ```
 
 read the next signed int64 and advance the index
 
 ### IO().i64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L573)
+[[find in source code]](../../binaryiotools/__init__.py#L577)
 
 ```python
 @i64be.setter
-def i64be(i64be: Union[(str, bytearray, IO, int, float)]):
+def i64be(i64be: int):
 ```
 
 set the int64
 
 ### IO().i64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L558)
+[[find in source code]](../../binaryiotools/__init__.py#L562)
 
 ```python
 @property
-def i64le() -> Union[(str, bytearray, IO, int, float)]:
+def i64le() -> int:
 ```
 
 read the next signed int64 and advance the index
 
 ### IO().i64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L563)
+[[find in source code]](../../binaryiotools/__init__.py#L567)
 
 ```python
 @i64le.setter
-def i64le(i64le: Union[(str, bytearray, IO, int, float)]):
+def i64le(i64le: int):
 ```
 
 set the int64
 
 ### IO().i8
 
-[[find in source code]](../../binaryiotools/__init__.py#L268)
+[[find in source code]](../../binaryiotools/__init__.py#L272)
 
 ```python
 @property
-def i8() -> Union[(str, bytearray, IO, int, float)]:
+def i8() -> int:
 ```
 
 get an int8
 
 ### IO().i8
 
-[[find in source code]](../../binaryiotools/__init__.py#L275)
+[[find in source code]](../../binaryiotools/__init__.py#L279)
 
 ```python
 @i8.setter
-def i8(i8: Union[(str, bytearray, IO, int, float)]):
+def i8(i8: int):
 ```
 
 set an int8
 
 ### IO().i8be
 
-[[find in source code]](../../binaryiotools/__init__.py#L448)
+[[find in source code]](../../binaryiotools/__init__.py#L452)
 
 ```python
 @property
-def i8be() -> Union[(str, bytearray, IO, int, float)]:
+def i8be() -> int:
 ```
 
 read the next signed int8 and advance the index
 
 ### IO().i8be
 
-[[find in source code]](../../binaryiotools/__init__.py#L453)
+[[find in source code]](../../binaryiotools/__init__.py#L457)
 
 ```python
 @i8be.setter
-def i8be(i8be: Union[(str, bytearray, IO, int, float)]):
+def i8be(i8be: int):
 ```
 
 set the int8
 
 ### IO().i8le
 
-[[find in source code]](../../binaryiotools/__init__.py#L438)
+[[find in source code]](../../binaryiotools/__init__.py#L442)
 
 ```python
 @property
-def i8le() -> Union[(str, bytearray, IO, int, float)]:
+def i8le() -> int:
 ```
 
 read the next signed int8 and advance the index
 
 ### IO().i8le
 
-[[find in source code]](../../binaryiotools/__init__.py#L443)
+[[find in source code]](../../binaryiotools/__init__.py#L447)
 
 ```python
 @i8le.setter
-def i8le(i8le: Union[(str, bytearray, IO, int, float)]):
+def i8le(i8le: int):
 ```
 
 set the int8
@@ -949,7 +949,7 @@ set index
 
 ### IO().qword
 
-[[find in source code]](../../binaryiotools/__init__.py#L248)
+[[find in source code]](../../binaryiotools/__init__.py#L252)
 
 ```python
 @property
@@ -960,7 +960,7 @@ get a qword
 
 ### IO().qword
 
-[[find in source code]](../../binaryiotools/__init__.py#L253)
+[[find in source code]](../../binaryiotools/__init__.py#L257)
 
 ```python
 @qword.setter
@@ -971,7 +971,7 @@ set a qword
 
 ### IO().setBytes
 
-[[find in source code]](../../binaryiotools/__init__.py#L656)
+[[find in source code]](../../binaryiotools/__init__.py#L660)
 
 ```python
 def setBytes(ioBytes: Union[(str, bytearray, IO, int, float)]):
@@ -987,7 +987,7 @@ alias for addBytes()
 
 ### IO().sz754
 
-[[find in source code]](../../binaryiotools/__init__.py#L708)
+[[find in source code]](../../binaryiotools/__init__.py#L712)
 
 ```python
 @property
@@ -998,7 +998,7 @@ sz754
 
 ### IO().sz754
 
-[[find in source code]](../../binaryiotools/__init__.py#L713)
+[[find in source code]](../../binaryiotools/__init__.py#L717)
 
 ```python
 @sz754.setter
@@ -1009,7 +1009,7 @@ set sz754
 
 ### IO().sz754A
 
-[[find in source code]](../../binaryiotools/__init__.py#L718)
+[[find in source code]](../../binaryiotools/__init__.py#L722)
 
 ```python
 @property
@@ -1020,7 +1020,7 @@ sz754A
 
 ### IO().sz754A
 
-[[find in source code]](../../binaryiotools/__init__.py#L723)
+[[find in source code]](../../binaryiotools/__init__.py#L727)
 
 ```python
 @sz754A.setter
@@ -1031,7 +1031,7 @@ set sz754A
 
 ### IO().sz754U
 
-[[find in source code]](../../binaryiotools/__init__.py#L738)
+[[find in source code]](../../binaryiotools/__init__.py#L742)
 
 ```python
 @property
@@ -1042,7 +1042,7 @@ sz754U
 
 ### IO().sz754U
 
-[[find in source code]](../../binaryiotools/__init__.py#L743)
+[[find in source code]](../../binaryiotools/__init__.py#L747)
 
 ```python
 @sz754U.setter
@@ -1053,7 +1053,7 @@ set sz754U
 
 ### IO().sz754W
 
-[[find in source code]](../../binaryiotools/__init__.py#L728)
+[[find in source code]](../../binaryiotools/__init__.py#L732)
 
 ```python
 @property
@@ -1064,7 +1064,7 @@ sz754W
 
 ### IO().sz754W
 
-[[find in source code]](../../binaryiotools/__init__.py#L733)
+[[find in source code]](../../binaryiotools/__init__.py#L737)
 
 ```python
 @sz754W.setter
@@ -1075,359 +1075,359 @@ set sz754W
 
 ### IO().textLine
 
-[[find in source code]](../../binaryiotools/__init__.py#L777)
+[[find in source code]](../../binaryiotools/__init__.py#L781)
 
 ```python
 @property
-def textLine() -> Union[(str, bytearray, IO, int, float)]:
+def textLine() -> str:
 ```
 
 Read a sequence of chars until the next new line char
 
 ### IO().textLine
 
-[[find in source code]](../../binaryiotools/__init__.py#L785)
+[[find in source code]](../../binaryiotools/__init__.py#L789)
 
 ```python
 @textLine.setter
-def textLine(text: Union[(str, bytearray, IO, int, float)]):
+def textLine(text: str):
 ```
 
 Set a sequence of chars until the next new line char
 
 ### IO().textLineA
 
-[[find in source code]](../../binaryiotools/__init__.py#L792)
+[[find in source code]](../../binaryiotools/__init__.py#L796)
 
 ```python
 @property
-def textLineA() -> Union[(str, bytearray, IO, int, float)]:
+def textLineA() -> str:
 ```
 
 Read a sequence of chars until the next new line char in ascii
 
 ### IO().textLineA
 
-[[find in source code]](../../binaryiotools/__init__.py#L800)
+[[find in source code]](../../binaryiotools/__init__.py#L804)
 
 ```python
 @textLineA.setter
-def textLineA(text: Union[(str, bytearray, IO, int, float)]):
+def textLineA(text: str):
 ```
 
 Set a sequence of chars until the next new line char in ascii
 
 ### IO().textLineU
 
-[[find in source code]](../../binaryiotools/__init__.py#L822)
+[[find in source code]](../../binaryiotools/__init__.py#L826)
 
 ```python
 @property
-def textLineU() -> Union[(str, bytearray, IO, int, float)]:
+def textLineU() -> str:
 ```
 
 Read a sequence of chars until the next new line char in utf-8
 
 ### IO().textLineU
 
-[[find in source code]](../../binaryiotools/__init__.py#L830)
+[[find in source code]](../../binaryiotools/__init__.py#L834)
 
 ```python
 @textLineU.setter
-def textLineU(text: Union[(str, bytearray, IO, int, float)]):
+def textLineU(text: str):
 ```
 
 Set a sequence of chars until the next new line char in utf-8
 
 ### IO().textLineW
 
-[[find in source code]](../../binaryiotools/__init__.py#L807)
+[[find in source code]](../../binaryiotools/__init__.py#L811)
 
 ```python
 @property
-def textLineW() -> Union[(str, bytearray, IO, int, float)]:
+def textLineW() -> str:
 ```
 
 Read a sequence of chars until the next new line char in ucs-2
 
 ### IO().textLineW
 
-[[find in source code]](../../binaryiotools/__init__.py#L815)
+[[find in source code]](../../binaryiotools/__init__.py#L819)
 
 ```python
 @textLineW.setter
-def textLineW(text: Union[(str, bytearray, IO, int, float)]):
+def textLineW(text: str):
 ```
 
 Set a sequence of chars until the next new line char in ucs-2
 
 ### IO().u16
 
-[[find in source code]](../../binaryiotools/__init__.py#L313)
+[[find in source code]](../../binaryiotools/__init__.py#L317)
 
 ```python
 @property
-def u16() -> Union[(str, bytearray, IO, int, float)]:
+def u16() -> int:
 ```
 
 get an uint16
 
 ### IO().u16
 
-[[find in source code]](../../binaryiotools/__init__.py#L320)
+[[find in source code]](../../binaryiotools/__init__.py#L324)
 
 ```python
 @u16.setter
-def u16(u16: Union[(str, bytearray, IO, int, float)]):
+def u16(u16: int):
 ```
 
 set an unint16
 
 ### IO().u16be
 
-[[find in source code]](../../binaryiotools/__init__.py#L458)
+[[find in source code]](../../binaryiotools/__init__.py#L462)
 
 ```python
 @property
-def u16be() -> Union[(str, bytearray, IO, int, float)]:
+def u16be() -> int:
 ```
 
 read the next uint16 and advance the index
 
 ### IO().u16be
 
-[[find in source code]](../../binaryiotools/__init__.py#L463)
+[[find in source code]](../../binaryiotools/__init__.py#L467)
 
 ```python
 @u16be.setter
-def u16be(u16be: Union[(str, bytearray, IO, int, float)]):
+def u16be(u16be: int):
 ```
 
 set the uint16
 
 ### IO().u16le
 
-[[find in source code]](../../binaryiotools/__init__.py#L468)
+[[find in source code]](../../binaryiotools/__init__.py#L472)
 
 ```python
 @property
-def u16le() -> Union[(str, bytearray, IO, int, float)]:
+def u16le() -> int:
 ```
 
 read the next uint16 and advance the index
 
 ### IO().u16le
 
-[[find in source code]](../../binaryiotools/__init__.py#L473)
+[[find in source code]](../../binaryiotools/__init__.py#L477)
 
 ```python
 @u16le.setter
-def u16le(u16le: Union[(str, bytearray, IO, int, float)]):
+def u16le(u16le: int):
 ```
 
 set the uint16
 
 ### IO().u32
 
-[[find in source code]](../../binaryiotools/__init__.py#L343)
+[[find in source code]](../../binaryiotools/__init__.py#L347)
 
 ```python
 @property
-def u32() -> Union[(str, bytearray, IO, int, float)]:
+def u32() -> int:
 ```
 
 get a uint32
 
 ### IO().u32
 
-[[find in source code]](../../binaryiotools/__init__.py#L350)
+[[find in source code]](../../binaryiotools/__init__.py#L354)
 
 ```python
 @u32.setter
-def u32(u32: Union[(str, bytearray, IO, int, float)]):
+def u32(u32: int):
 ```
 
 set a unint32
 
 ### IO().u32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L498)
+[[find in source code]](../../binaryiotools/__init__.py#L502)
 
 ```python
 @property
-def u32be() -> Union[(str, bytearray, IO, int, float)]:
+def u32be() -> int:
 ```
 
 read the next uint32 and advance the index
 
 ### IO().u32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L503)
+[[find in source code]](../../binaryiotools/__init__.py#L507)
 
 ```python
 @u32be.setter
-def u32be(u32be: Union[(str, bytearray, IO, int, float)]):
+def u32be(u32be: int):
 ```
 
 set the uint32
 
 ### IO().u32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L508)
+[[find in source code]](../../binaryiotools/__init__.py#L512)
 
 ```python
 @property
-def u32le() -> Union[(str, bytearray, IO, int, float)]:
+def u32le() -> int:
 ```
 
 read the next uint32 and advance the index
 
 ### IO().u32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L513)
+[[find in source code]](../../binaryiotools/__init__.py#L517)
 
 ```python
 @u32le.setter
-def u32le(u32le: Union[(str, bytearray, IO, int, float)]):
+def u32le(u32le: int):
 ```
 
 set the uint32
 
 ### IO().u64
 
-[[find in source code]](../../binaryiotools/__init__.py#L373)
+[[find in source code]](../../binaryiotools/__init__.py#L377)
 
 ```python
 @property
-def u64() -> Union[(str, bytearray, IO, int, float)]:
+def u64() -> int:
 ```
 
 get a uint64
 
 ### IO().u64
 
-[[find in source code]](../../binaryiotools/__init__.py#L380)
+[[find in source code]](../../binaryiotools/__init__.py#L384)
 
 ```python
 @u64.setter
-def u64(u64: Union[(str, bytearray, IO, int, float)]):
+def u64(u64: int):
 ```
 
 set a uint64
 
 ### IO().u64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L538)
+[[find in source code]](../../binaryiotools/__init__.py#L542)
 
 ```python
 @property
-def u64be() -> Union[(str, bytearray, IO, int, float)]:
+def u64be() -> int:
 ```
 
 read the next uint64 and advance the index
 
 ### IO().u64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L543)
+[[find in source code]](../../binaryiotools/__init__.py#L547)
 
 ```python
 @u64be.setter
-def u64be(u64be: Union[(str, bytearray, IO, int, float)]):
+def u64be(u64be: int):
 ```
 
 set the uint64
 
 ### IO().u64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L548)
+[[find in source code]](../../binaryiotools/__init__.py#L552)
 
 ```python
 @property
-def u64le() -> Union[(str, bytearray, IO, int, float)]:
+def u64le() -> int:
 ```
 
 read the next uint64 and advance the index
 
 ### IO().u64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L553)
+[[find in source code]](../../binaryiotools/__init__.py#L557)
 
 ```python
 @u64le.setter
-def u64le(u64le: Union[(str, bytearray, IO, int, float)]):
+def u64le(u64le: int):
 ```
 
 set the uint64
 
 ### IO().u8
 
-[[find in source code]](../../binaryiotools/__init__.py#L283)
+[[find in source code]](../../binaryiotools/__init__.py#L287)
 
 ```python
 @property
-def u8() -> Union[(str, bytearray, IO, int, float)]:
+def u8() -> int:
 ```
 
 get an unsigned int
 
 ### IO().u8
 
-[[find in source code]](../../binaryiotools/__init__.py#L290)
+[[find in source code]](../../binaryiotools/__init__.py#L294)
 
 ```python
 @u8.setter
-def u8(u8: Union[(str, bytearray, IO, int, float)]):
+def u8(u8: int):
 ```
 
 set an unsigned int
 
 ### IO().u8be
 
-[[find in source code]](../../binaryiotools/__init__.py#L418)
+[[find in source code]](../../binaryiotools/__init__.py#L422)
 
 ```python
 @property
-def u8be() -> Union[(str, bytearray, IO, int, float)]:
+def u8be() -> int:
 ```
 
 read the next uint8 and advance the index
 
 ### IO().u8be
 
-[[find in source code]](../../binaryiotools/__init__.py#L423)
+[[find in source code]](../../binaryiotools/__init__.py#L427)
 
 ```python
 @u8be.setter
-def u8be(u8be: Union[(str, bytearray, IO, int, float)]):
+def u8be(u8be: int):
 ```
 
 set the uint8
 
 ### IO().u8le
 
-[[find in source code]](../../binaryiotools/__init__.py#L428)
+[[find in source code]](../../binaryiotools/__init__.py#L432)
 
 ```python
 @property
-def u8le() -> Union[(str, bytearray, IO, int, float)]:
+def u8le() -> int:
 ```
 
 read the next uint8 and advance the index
 
 ### IO().u8le
 
-[[find in source code]](../../binaryiotools/__init__.py#L433)
+[[find in source code]](../../binaryiotools/__init__.py#L437)
 
 ```python
 @u8le.setter
-def u8le(u8le: Union[(str, bytearray, IO, int, float)]):
+def u8le(u8le: int):
 ```
 
 set the uint8
 
 ### IO().unsignedByte
 
-[[find in source code]](../../binaryiotools/__init__.py#L198)
+[[find in source code]](../../binaryiotools/__init__.py#L202)
 
 ```python
 @property
@@ -1438,7 +1438,7 @@ get unsigned byte
 
 ### IO().unsignedByte
 
-[[find in source code]](../../binaryiotools/__init__.py#L203)
+[[find in source code]](../../binaryiotools/__init__.py#L207)
 
 ```python
 @unsignedByte.setter
@@ -1449,7 +1449,7 @@ set unsigned byte
 
 ### IO().unsignedDword
 
-[[find in source code]](../../binaryiotools/__init__.py#L238)
+[[find in source code]](../../binaryiotools/__init__.py#L242)
 
 ```python
 @property
@@ -1460,7 +1460,7 @@ get a unsigned dword
 
 ### IO().unsignedDword
 
-[[find in source code]](../../binaryiotools/__init__.py#L243)
+[[find in source code]](../../binaryiotools/__init__.py#L247)
 
 ```python
 @unsignedDword.setter
@@ -1471,7 +1471,7 @@ set an unsigned dword
 
 ### IO().unsignedQword
 
-[[find in source code]](../../binaryiotools/__init__.py#L258)
+[[find in source code]](../../binaryiotools/__init__.py#L262)
 
 ```python
 @property
@@ -1482,7 +1482,7 @@ get an unsigned qword
 
 ### IO().unsignedQword
 
-[[find in source code]](../../binaryiotools/__init__.py#L263)
+[[find in source code]](../../binaryiotools/__init__.py#L267)
 
 ```python
 @unsignedQword.setter
@@ -1493,7 +1493,7 @@ set an unsigned qword
 
 ### IO().unsignedWord
 
-[[find in source code]](../../binaryiotools/__init__.py#L218)
+[[find in source code]](../../binaryiotools/__init__.py#L222)
 
 ```python
 @property
@@ -1504,7 +1504,7 @@ get an unsigned word
 
 ### IO().unsignedWord
 
-[[find in source code]](../../binaryiotools/__init__.py#L223)
+[[find in source code]](../../binaryiotools/__init__.py#L227)
 
 ```python
 @unsignedWord.setter
@@ -1515,7 +1515,7 @@ set an unsigned word
 
 ### IO().word
 
-[[find in source code]](../../binaryiotools/__init__.py#L208)
+[[find in source code]](../../binaryiotools/__init__.py#L212)
 
 ```python
 @property
@@ -1526,7 +1526,7 @@ get a word
 
 ### IO().word
 
-[[find in source code]](../../binaryiotools/__init__.py#L213)
+[[find in source code]](../../binaryiotools/__init__.py#L217)
 
 ```python
 @word.setter
