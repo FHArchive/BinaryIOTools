@@ -73,7 +73,7 @@ https://github.com/TheHeadlessSourceMan/gimpFormats/blob/master/binaryIO.py
 which is under LGPLv3
 
 ## Documentation
-See the [Docs](/DOCS/README.md) for more information.
+See the [Docs](/DOCS/) for more information.
 
 
 ## Install With PIP
