@@ -693,8 +693,8 @@ class IO:
 		nchars = self.u32
 		if nchars == 0:
 			return ''
-		data = self.data[self.index:self.index + nchars - 1]
-		self.index += nchars
+		data = self.data[self.index:self.index + nchars]
+		self.index += nchars + 1
 		if encoding == 'A':
 			return data
 		if encoding == 'U':
