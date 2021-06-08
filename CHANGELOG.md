@@ -2,6 +2,11 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2021 - 2021/06/08
+- (hopefully) improved typing
+- reformat
+- use double quotes
+
 ## 2020.2.2 - 2020/10/29
 - (hopefully) improved typing
 
