@@ -28,24 +28,17 @@ For a file starting with the bytes:
 The values for width and height would be 200, 400
 """
 from __future__ import annotations
-
+from typing import Optional, Union
 import struct
-from typing import Any
 
 
 class IO:
-	"""Class to handle i/o to a byte buffer or file-like object."""
-
-	def __init__(
-		self,
-		data: bytearray | bytes | None = None,
-		idx: int = 0,
-		littleEndian: bool = False,
-		boolSize: int = 8,
-		stringEncoding: str = "U",
-	):
-		"""Class to handle i/o to a byte buffer or file-like object.
-
+	"""
+	Class to handle i/o to a byte buffer or file-like object
+	"""
+	def __init__(self, data: Optional[bytearray]=None, idx: int=0,
+	littleEndian: bool=False, boolSize: int=8, stringEncoding: str='U'):
+		"""
 		:param data: can be a data buffer or a file-like object
 		:param idx: start reading/writing the data at the given index
 		:param littleEndian: whether the default is big-endian or little-endian
@@ -59,51 +52,52 @@ class IO:
 		self._contexts = []
 		self.littleEndian = littleEndian
 		self.boolSize = boolSize
-		self.stringEncoding = stringEncoding  # A=Ascii, U=UTF-8, W-Unicode wide
+		self.stringEncoding = stringEncoding # A=Ascii, U=UTF-8, W-Unicode wide
 
-	def __len__(self) -> int:
-		"""Length of data."""
+	def __len__(self):
 		return len(self.data)
 
 	def __getitem__(self, idx: int):
-		"""Get data at a specific idx."""
 		return self.data[idx]
 
 	@property
 	def data(self) -> bytearray:
-		"""Return data."""
+		""" return data """
 		return self._data
 
 	@data.setter
 	def data(self, data: bytearray) -> None:
-		"""Set data."""
+		""" set data """
 		if not hasattr(data, "__getitem__"):
-			raise Exception("ERR: incorrect type for data buffer" + str(type(data)))
+			raise Exception('ERR: incorrect type for data buffer' + str(type(data)))
 		self._data = data
 
 	@property
 	def index(self) -> int:
-		"""Return data."""
+		""" return data """
 		return self._index
 
 	@index.setter
 	def index(self, index: int) -> None:
-		"""Set index."""
+		""" set index """
 		self._index = index
 
 	def beginContext(self, newIndex: int):
-		"""Start a new context where the index can be changed all you want...
-
+		"""
+		Start a new context where the index can be changed all you want,
 		and when endContext() is called, it will be restored to the current position
 		"""
 		self._contexts.append(newIndex)
 
 	def endContext(self):
-		"""Restore the index to the previous location where it was when	beginContext() was called."""
+		"""
+		Restore the index to the previous location where it was when
+		beginContext() was called
+		"""
 		self.index = self._contexts.pop()
 
-	def _write(self, size: int, fmt: str, data: Any):
-		"""General formatted write."""
+	def _write(self, size: int, fmt: str, data: Union[str, bytearray, IO, int, float]):
+		"""	general formatted write	"""
 		if self.index + size >= len(self.data):
 			self.data.extend(bytearray((self.index + size) - len(self.data)))
 		try:
@@ -112,29 +106,21 @@ class IO:
 		except (DeprecationWarning, struct.error) as upstream:
 			raise Exception(type(data), fmt, size, data) from upstream
 
-	def _read(self, size: int, fmt: str) -> Any:
-		"""General formatted read."""
+	def _read(self, size: int, fmt: str) -> Union[str, bytearray, IO, int, float]:
+		"""	general formatted read """
 		try:
-			data = struct.unpack(fmt, self.data[self.index : self.index + size])[0]
+			data = struct.unpack(fmt, self.data[self.index:self.index + size])[0]
 		except (DeprecationWarning, struct.error) as upstream:
-			raise Exception(
-				str(fmt)
-				+ " "
-				+ str(size)
-				+ " "
-				+ str(self.index)
-				+ " "
-				+ str(len(self.data))
-				+ " "
-				+ str(self.data[self.index : self.index + size])
-			) from upstream
+			raise Exception(str(fmt) + " " + str(size) + " " +
+			str(self.index) + ' ' + str(len(self.data)) + ' ' +
+			str(self.data[self.index:self.index + size])) from upstream
 		# Move the pointer forward
 		self.index += size
 		return data
 
 	@property
 	def boolean(self) -> bool:
-		"""Return bool."""
+		""" return bool """
 		if self.boolSize == 8:
 			return self.bool8
 		if self.boolSize == 16:
@@ -145,9 +131,11 @@ class IO:
 			return self.bool64
 		raise Exception("Unknown bool size " + str(self.boolSize))
 
+	bool = property(boolean)
+
 	@boolean.setter
 	def boolean(self, ioBool: bool):
-		"""Set bool."""
+		""" set bool """
 		if self.boolSize == 8:
 			self.bool8 = ioBool
 		elif self.boolSize == 16:
@@ -159,136 +147,138 @@ class IO:
 		else:
 			raise Exception("Unknown bool size " + str(self.boolSize))
 
+	bool = boolean.setter(boolean)
+
 	@property
 	def bool8(self) -> bool:
-		"""Get bool8."""
+		""" get bool8 """
 		return self.u8 != 0
 
 	@bool8.setter
 	def bool8(self, ioBool: bool):
-		"""Set a bool8."""
+		""" set a bool8 """
 		self.u8 = ioBool
 
 	@property
 	def bool16(self) -> bool:
-		"""Get bool16."""
+		""" get bool16 """
 		return self.u16 != 0
 
 	@bool16.setter
 	def bool16(self, ioBool: bool):
-		"""Set bool16."""
+		""" set bool16 """
 		self.u16 = ioBool
 
 	@property
 	def bool32(self) -> bool:
-		"""Get bool32."""
+		""" get bool32 """
 		return self.u32 != 0
 
 	@bool32.setter
 	def bool32(self, ioBool: bool):
-		"""Set bool32."""
+		""" set bool32 """
 		self.u32 = ioBool
 
 	@property
 	def bool64(self) -> bool:
-		"""Get bool64."""
+		""" get bool64 """
 		return self.u64 != 0
 
 	@bool64.setter
 	def bool64(self, ioBool: bool):
-		"""Set bool64."""
+		""" set bool64 """
 		self.u64 = ioBool
 
 	@property
-	def byte(self) -> Any:
-		"""Get byte."""
+	def byte(self) -> Union[str, bytearray, IO, int, float]:
+		""" get byte """
 		return self.i8
 
 	@byte.setter
-	def byte(self, byte: Any):
-		"""Set byte."""
+	def byte(self, byte: Union[str, bytearray, IO, int, float]):
+		""" set byte """
 		self.i8 = byte
 
 	@property
-	def unsignedByte(self) -> Any:
-		"""Get unsigned byte."""
+	def unsignedByte(self) -> Union[str, bytearray, IO, int, float]:
+		""" get unsigned byte """
 		return self.u8
 
 	@unsignedByte.setter
-	def unsignedByte(self, byte: Any):
-		"""Set unsigned byte."""
+	def unsignedByte(self, byte: Union[str, bytearray, IO, int, float]):
+		""" set unsigned byte """
 		self.u8 = byte
 
 	@property
-	def word(self) -> Any:
-		"""Get a word."""
+	def word(self) -> Union[str, bytearray, IO, int, float]:
+		""" get a word """
 		return self.i16
 
 	@word.setter
-	def word(self, word: Any):
-		"""Set a word."""
+	def word(self, word: Union[str, bytearray, IO, int, float]):
+		""" set a word """
 		self.i16 = word
 
 	@property
-	def unsignedWord(self) -> Any:
-		"""Get an unsigned word."""
+	def unsignedWord(self) -> Union[str, bytearray, IO, int, float]:
+		""" get an unsigned word """
 		return self.u16
 
 	@unsignedWord.setter
-	def unsignedWord(self, unsignedWord: Any):
-		"""Set an unsigned word."""
+	def unsignedWord(self, unsignedWord: Union[str, bytearray, IO, int, float]):
+		""" set an unsigned word """
 		self.u16 = unsignedWord
 
 	@property
-	def dword(self) -> Any:
-		"""Get a dword."""
+	def dword(self) -> Union[str, bytearray, IO, int, float]:
+		""" get a dword """
 		return self.i32
 
 	@dword.setter
-	def dword(self, dword: Any):
-		"""Set a dword."""
+	def dword(self, dword: Union[str, bytearray, IO, int, float]):
+		""" set a dword """
 		self.i32 = dword
 
 	@property
-	def unsignedDword(self) -> Any:
-		"""Get a unsigned dword."""
+	def unsignedDword(self) -> Union[str, bytearray, IO, int, float]:
+		""" get a unsigned dword """
 		return self.u32
 
 	@unsignedDword.setter
-	def unsignedDword(self, unsignedDword: Any):
-		"""Set an unsigned dword."""
+	def unsignedDword(self, unsignedDword: Union[str, bytearray, IO, int, float]):
+		""" set an unsigned dword """
 		self.u32 = unsignedDword
 
 	@property
-	def qword(self) -> Any:
-		"""Get a qword."""
+	def qword(self) -> Union[str, bytearray, IO, int, float]:
+		""" get a qword """
 		return self.i64
 
 	@qword.setter
-	def qword(self, qword: Any):
-		"""Set a qword."""
+	def qword(self, qword: Union[str, bytearray, IO, int, float]):
+		""" set a qword """
 		self.i64 = qword
 
 	@property
-	def unsignedQword(self) -> Any:
-		"""Get an unsigned qword."""
+	def unsignedQword(self) -> Union[str, bytearray, IO, int, float]:
+		""" get an unsigned qword """
 		return self.u64
 
 	@unsignedQword.setter
-	def unsignedQword(self, unsignedQword: Any):
-		"""Set an unsigned qword."""
+	def unsignedQword(self, unsignedQword: Union[str, bytearray, IO, int, float]):
+		""" set an unsigned qword """
 		self.u64 = unsignedQword
 
 	@property
 	def i8(self) -> int:
-		"""Get an int8."""
+		""" get an int8 """
 		if self.littleEndian:
 			return self.i8le
 		return self.i8be
 
 	@i8.setter
 	def i8(self, i8: int):
-		"""Set an int8."""
+		""" set an int8 """
 		if self.littleEndian:
 			self.i8le = i8
 		else:
@@ -296,14 +286,14 @@ class IO:
 
 	@property
 	def u8(self) -> int:
-		"""Get an unsigned int."""
+		""" get an unsigned int """
 		if self.littleEndian:
 			return self.u8le
 		return self.u8be
 
 	@u8.setter
 	def u8(self, u8: int):
-		"""Set an unsigned int."""
+		""" set an unsigned int """
 		if self.littleEndian:
 			self.u8le = u8
 		else:
@@ -311,14 +301,14 @@ class IO:
 
 	@property
 	def i16(self) -> int:
-		"""Get an int16."""
+		""" get an int16 """
 		if self.littleEndian:
 			return self.i16le
 		return self.i16be
 
 	@i16.setter
 	def i16(self, i16: int):
-		"""Set an int16."""
+		""" set an int16 """
 		if self.littleEndian:
 			self.i16le = i16
 		else:
@@ -326,14 +316,14 @@ class IO:
 
 	@property
 	def u16(self) -> int:
-		"""Get an uint16."""
+		""" get an uint16 """
 		if self.littleEndian:
 			return self.u16le
 		return self.u16be
 
 	@u16.setter
 	def u16(self, u16: int):
-		"""Set an unint16."""
+		""" set an unint16 """
 		if self.littleEndian:
 			self.u16le = u16
 		else:
@@ -341,14 +331,14 @@ class IO:
 
 	@property
 	def i32(self) -> int:
-		"""Get an int32."""
+		""" get an int32 """
 		if self.littleEndian:
 			return self.i32le
 		return self.i32be
 
 	@i32.setter
 	def i32(self, i32: int):
-		"""Set an int32."""
+		"""set an int32 """
 		if self.littleEndian:
 			self.i32le = i32
 		else:
@@ -356,14 +346,14 @@ class IO:
 
 	@property
 	def u32(self) -> int:
-		"""Get a uint32."""
+		""" get a uint32 """
 		if self.littleEndian:
 			return self.u32le
 		return self.u32be
 
 	@u32.setter
 	def u32(self, u32: int):
-		"""Set a unint32."""
+		""" set a unint32 """
 		if self.littleEndian:
 			self.u32le = u32
 		else:
@@ -371,14 +361,14 @@ class IO:
 
 	@property
 	def i64(self) -> int:
-		"""Get an int64."""
+		""" get an int64 """
 		if self.littleEndian:
 			return self.i64le
 		return self.i64be
 
 	@i64.setter
 	def i64(self, i64: int):
-		"""Set an int64."""
+		""" set an int64 """
 		if self.littleEndian:
 			self.i64le = i64
 		else:
@@ -386,14 +376,14 @@ class IO:
 
 	@property
 	def u64(self) -> int:
-		"""Get a uint64."""
+		""" get a uint64 """
 		if self.littleEndian:
 			return self.u64le
 		return self.u64be
 
 	@u64.setter
 	def u64(self, u64: int):
-		"""Set a uint64."""
+		""" set a uint64 """
 		if self.littleEndian:
 			self.u64le = u64
 		else:
@@ -401,14 +391,14 @@ class IO:
 
 	@property
 	def float32(self) -> float:
-		"""Get a float32."""
+		""" get a float32 """
 		if self.littleEndian:
 			return self.float32le
 		return self.float32be
 
 	@float32.setter
 	def float32(self, float32: float):
-		"""Set a float32."""
+		""" set a float32 """
 		if self.littleEndian:
 			self.float32le = float32
 		else:
@@ -416,14 +406,14 @@ class IO:
 
 	@property
 	def float64(self) -> float:
-		"""Get a float64."""
+		""" get a float64 """
 		if self.littleEndian:
 			return self.float64le
 		return self.float64be
 
 	@float64.setter
 	def float64(self, float64: float):
-		"""Set a float64."""
+		""" set a float64 """
 		if self.littleEndian:
 			self.float64le = float64
 		else:
@@ -431,232 +421,235 @@ class IO:
 
 	@property
 	def u8be(self) -> int:
-		"""Read the next uint8 and advance the index."""
+		"""	read the next uint8 and advance the index """
 		return self._read(1, ">B")
 
 	@u8be.setter
 	def u8be(self, u8be: int):
-		"""Set the uint8."""
-		self._write(1, ">B", u8be)
+		""" set the uint8 """
+		self._write(1, '>B', u8be)
 
 	@property
 	def u8le(self) -> int:
-		"""Read the next uint8 and advance the index."""
+		"""	read the next uint8 and advance the index """
 		return self._read(1, "<B")
 
 	@u8le.setter
 	def u8le(self, u8le: int):
-		"""Set the uint8."""
-		self._write(1, "<B", u8le)
+		""" set the uint8 """
+		self._write(1, '<B', u8le)
 
 	@property
 	def i8le(self) -> int:
-		"""Read the next signed int8 and advance the index."""
+		"""	read the next signed int8 and advance the index """
 		return self._read(1, "<b")
 
 	@i8le.setter
 	def i8le(self, i8le: int):
-		"""Set the int8."""
-		self._write(1, "<b", i8le)
+		""" set the int8 """
+		self._write(1, '<b', i8le)
 
 	@property
 	def i8be(self) -> int:
-		"""Read the next signed int8 and advance the index."""
+		"""	read the next signed int8 and advance the index """
 		return self._read(1, ">b")
 
 	@i8be.setter
 	def i8be(self, i8be: int):
-		"""Set the int8."""
-		self._write(1, ">b", i8be)
+		""" set the int8 """
+		self._write(1, '>b', i8be)
 
 	@property
 	def u16be(self) -> int:
-		"""Read the next uint16 and advance the index."""
+		"""	read the next uint16 and advance the index """
 		return self._read(2, ">H")
 
 	@u16be.setter
 	def u16be(self, u16be: int):
-		"""Set the uint16."""
-		self._write(2, ">H", u16be)
+		""" set the uint16 """
+		self._write(2, '>H', u16be)
 
 	@property
 	def u16le(self) -> int:
-		"""Read the next uint16 and advance the index."""
+		"""	read the next uint16 and advance the index """
 		return self._read(2, "<H")
 
 	@u16le.setter
 	def u16le(self, u16le: int):
-		"""Set the uint16."""
-		self._write(2, "<H", u16le)
+		""" set the uint16 """
+		self._write(2, '<H', u16le)
 
 	@property
 	def i16le(self) -> int:
-		"""Read the next signed int16 and advance the index."""
+		"""	read the next signed int16 and advance the index """
 		return self._read(2, "<h")
 
 	@i16le.setter
 	def i16le(self, i16le: int):
-		"""Set the int16."""
-		self._write(2, "<h", i16le)
+		""" set the int16 """
+		self._write(2, '<h', i16le)
 
 	@property
 	def i16be(self) -> int:
-		"""Read the next signed int16 and advance the index."""
+		""" read the next signed int16 and advance the index """
 		return self._read(2, ">h")
 
 	@i16be.setter
 	def i16be(self, i16be: int):
-		"""Set the int16."""
-		self._write(2, ">h", i16be)
+		""" set the int16 """
+		self._write(2, '>h', i16be)
 
 	@property
 	def u32be(self) -> int:
-		"""Read the next uint32 and advance the index."""
+		"""	read the next uint32 and advance the index """
 		return self._read(4, ">I")
 
 	@u32be.setter
 	def u32be(self, u32be: int):
-		"""Set the uint32."""
-		self._write(4, ">I", u32be)
+		""" set the uint32 """
+		self._write(4, '>I', u32be)
 
 	@property
 	def u32le(self) -> int:
-		"""Read the next uint32 and advance the index."""
+		"""	read the next uint32 and advance the index """
 		return self._read(4, "<I")
 
 	@u32le.setter
 	def u32le(self, u32le: int):
-		"""Set the uint32."""
-		self._write(4, "<I", u32le)
+		""" set the uint32 """
+		self._write(4, '<I', u32le)
 
 	@property
 	def i32le(self) -> int:
-		"""Read the next signed int32 and advance the index."""
+		"""	read the next signed int32 and advance the index """
 		return self._read(4, "<i")
 
 	@i32le.setter
 	def i32le(self, i32le: int):
-		"""Set the int32."""
-		self._write(4, "<i", i32le)
+		""" set the int32 """
+		self._write(4, '<i', i32le)
 
 	@property
 	def i32be(self) -> int:
-		"""Read the next signed int32 and advance the index."""
+		"""	read the next signed int32 and advance the index """
 		return self._read(4, ">i")
 
 	@i32be.setter
 	def i32be(self, i32be: int):
-		"""Set the int32."""
-		self._write(4, ">i", i32be)
+		""" set the int32 """
+		self._write(4, '>i', i32be)
 
 	@property
 	def u64be(self) -> int:
-		"""Read the next uint64 and advance the index."""
+		"""	read the next uint64 and advance the index """
 		return self._read(8, ">Q")
 
 	@u64be.setter
 	def u64be(self, u64be: int):
-		"""Set the uint64."""
-		self._write(8, ">Q", u64be)
+		""" set the uint64 """
+		self._write(8, '>Q', u64be)
 
 	@property
 	def u64le(self) -> int:
-		"""Read the next uint64 and advance the index."""
+		"""	read the next uint64 and advance the index """
 		return self._read(8, "<Q")
 
 	@u64le.setter
 	def u64le(self, u64le: int):
-		"""Set the uint64."""
-		self._write(8, "<Q", u64le)
+		""" set the uint64 """
+		self._write(8, '<Q', u64le)
 
 	@property
 	def i64le(self) -> int:
-		"""Read the next signed int64 and advance the index."""
+		""" read the next signed int64 and advance the index """
 		return self._read(8, "<q")
 
 	@i64le.setter
 	def i64le(self, i64le: int):
-		"""Set the int64."""
-		self._write(8, "<q", i64le)
+		""" set the int64 """
+		self._write(8, '<q', i64le)
 
 	@property
 	def i64be(self) -> int:
-		"""Read the next signed int64 and advance the index."""
+		"""	read the next signed int64 and advance the index """
 		return self._read(8, ">q")
 
 	@i64be.setter
 	def i64be(self, i64be: int):
-		"""Set the int64."""
-		self._write(8, ">q", i64be)
+		""" set the int64 """
+		self._write(8, '>q', i64be)
 
 	@property
 	def floating(self) -> float:
-		"""Get a float."""
+		""" get a float """
 		return self.float32
 
 	@floating.setter
 	def floating(self, floating: float):
-		"""Set a float."""
+		""" set a float """
 		self.float32 = floating
 
 	@property
 	def double(self) -> float:
-		"""Get a double."""
+		""" get a double """
 		return self.float64
 
 	@double.setter
 	def double(self, floating: float):
-		"""Set a double."""
+		""" set a double """
 		self.float64 = floating
 
 	@property
 	def float32be(self) -> float:
-		"""Read the next 32 bit float and advance the index."""
+		"""	read the next 32 bit float and advance the index """
 		return self._read(4, ">f")
 
 	@float32be.setter
 	def float32be(self, float32be: float):
-		"""Set a 32 bit float."""
-		self._write(4, ">f", float32be)
+		""" set a 32 bit float """
+		self._write(4, '>f', float32be)
 
 	@property
 	def float32le(self) -> float:
-		"""Read the next 32 bit float and advance the index."""
+		"""	read the next 32 bit float and advance the index """
 		return self._read(4, "<f")
 
 	@float32le.setter
 	def float32le(self, float32le: float):
-		"""Set a 32 bit float."""
-		self._write(4, "<f", float32le)
+		""" set a 32 bit float """
+		self._write(4, '<f', float32le)
 
 	@property
 	def float64be(self) -> float:
-		"""Read the next 64 bit float and advance the index."""
+		"""	read the next 64 bit float and advance the index """
 		return self._read(8, ">d")
 
 	@float64be.setter
 	def float64be(self, float64be: float):
-		"""Set a 64 bit float."""
-		self._write(8, ">d", float64be)
+		""" set a 64 bit float """
+		self._write(8, '>d', float64be)
 
 	@property
 	def float64le(self) -> float:
-		"""Read the next 64 bit float and advance the index."""
+		"""	read the next 64 bit float and advance the index """
 		return self._read(8, "<d")
 
 	@float64le.setter
 	def float64le(self, float64le: float):
-		"""Set a 64 bit float."""
-		self._write(8, "<d", float64le)
+		""" set a 64 bit float """
+		self._write(8, '<d', float64le)
 
 	def getBytes(self, nbytes: int):
-		"""Grab some raw bytes and advance the index."""
-		data = self.data[self.index : self.index + nbytes]
+		"""
+		grab some raw bytes and advance the index
+		"""
+		data = self.data[self.index:self.index + nbytes]
 		self.index += nbytes
 		return data
 
-	def addBytes(self, ioBytes: Any):
-		"""Add some raw bytes and advance the index.
+	def addBytes(self, ioBytes: Union[str, bytearray, IO, int, float]):
+		"""
+		add some raw bytes and advance the index
 
 		alias for setBytes()
 
@@ -664,8 +657,9 @@ class IO:
 		"""
 		self.setBytes(ioBytes)
 
-	def setBytes(self, ioBytes: Any):
-		"""Add some raw bytes and advance the index.
+	def setBytes(self, ioBytes: Union[str, bytearray, IO, int, float]):
+		"""
+		add some raw bytes and advance the index
 
 		alias for addBytes()
 
@@ -687,7 +681,8 @@ class IO:
 				self.index += 1
 
 	def _sz754(self, encoding: str):
-		"""Read the next string conforming to IEEE 754 and advance the index.
+		"""
+		Read the next string conforming to IEEE 754 and advance the index
 
 		Note, string format is:
 			uint32   n+1  Number of bytes that follow, including the zero byte
@@ -697,191 +692,192 @@ class IO:
 		"""
 		nchars = self.u32
 		if nchars == 0:
-			return ""
-		data = self.data[self.index : self.index + nchars]
+			return ''
+		data = self.data[self.index:self.index + nchars]
 		self.index += nchars + 1
-		if encoding == "A":
+		if encoding == 'A':
 			return data
-		if encoding == "U":
-			return data.decode("UTF-8", errors="replace")
-		if encoding == "W":
-			return data.decode("UTF-16", errors="replace")
+		if encoding == 'U':
+			return data.decode('UTF-8', errors='replace')
+		if encoding == 'W':
+			return data.decode('UTF-16', errors='replace')
 		raise Exception()
 
-	def _sz754set(self, sz754: Any, _encoding: str):
-		"""_sz754set."""
+	def _sz754set(self, sz754: Union[str, bytearray, IO, int, float], _encoding: str):
+		'''_sz754set'''
 		self.u32 = len(sz754)
 		self.setBytes(sz754)
 		self.u8 = 0
 
 	@property
-	def sz754(self) -> Any:
-		"""sz754."""
+	def sz754(self) -> Union[str, bytearray, IO, int, float]:
+		'''sz754'''
 		return self._sz754(self.stringEncoding)
 
 	@sz754.setter
-	def sz754(self, sz754: Any):
-		"""Set sz754."""
+	def sz754(self, sz754: Union[str, bytearray, IO, int, float]):
+		'''set sz754'''
 		return self._sz754set(sz754, self.stringEncoding)
 
 	@property
-	def sz754A(self) -> Any:
-		"""sz754A."""
-		return self._sz754("A")
+	def sz754A(self) -> Union[str, bytearray, IO, int, float]:
+		'''sz754A'''
+		return self._sz754('A')
 
 	@sz754A.setter
-	def sz754A(self, sz754: Any):
-		"""Set sz754A."""
-		return self._sz754set(sz754, "A")
+	def sz754A(self, sz754: Union[str, bytearray, IO, int, float]):
+		'''set sz754A'''
+		return self._sz754set(sz754, 'A')
 
 	@property
-	def sz754W(self) -> Any:
-		"""sz754W."""
-		return self._sz754("W")
+	def sz754W(self) -> Union[str, bytearray, IO, int, float]:
+		'''sz754W'''
+		return self._sz754('W')
 
 	@sz754W.setter
-	def sz754W(self, sz754: Any):
-		"""Set sz754W."""
-		return self._sz754set(sz754, "W")
+	def sz754W(self, sz754: Union[str, bytearray, IO, int, float]):
+		'''set sz754W'''
+		return self._sz754set(sz754, 'W')
 
 	@property
-	def sz754U(self) -> Any:
-		"""sz754U."""
-		return self._sz754("U")
+	def sz754U(self) -> Union[str, bytearray, IO, int, float]:
+		'''sz754U'''
+		return self._sz754('U')
 
 	@sz754U.setter
-	def sz754U(self, sz754: Any):
-		"""Set sz754U."""
-		return self._sz754set(sz754, "U")
+	def sz754U(self, sz754: Union[str, bytearray, IO, int, float]):
+		'''set sz754U'''
+		return self._sz754set(sz754, 'U')
 
-	def _readUntil(self, until: str, encoding: str = "A") -> str:
-		"""Read a sequence of chars in a set encoding until a set char.
+	def _readUntil(self, until: str, encoding: str='A') -> str:
+		"""
+		Read a sequence of chars in a set encoding until a set char
 
 		:param until: must be within the ascii character set
 		:param encoding: one of A (ascii), U (UTF-8) or W (UCS-2)
 		"""
 		data = []
-		if encoding == "A":
-			encoding = "ascii"
-		elif encoding == "U":
-			encoding = "UTF-8"
-		elif encoding == "W":
-			encoding = "UCS-2"
+		if encoding == 'A':
+			encoding = 'ascii'
+		elif encoding == 'U':
+			encoding = 'UTF-8'
+		elif encoding == 'W':
+			encoding = 'UCS-2'
 		else:
-			raise Exception("bogus encoding")
-		untilB = until.encode("ascii")[0]  # always ascii
+			raise Exception('bogus encoding')
+		untilB = until.encode('ascii')[0] # always ascii
 		while True:
 			char = self.data[self.index]
 			self.index += 1
-			if encoding == "W":  # get one more byte
+			if encoding == 'W': # get one more byte
 				data.append(char)
 				char = self.data[self.index]
 				self.index += 1
 			if char == untilB:
 				break
 			data.append(char)
-		return bytes(data).decode(encoding, errors="replace")
+		return bytes(data).decode(encoding, errors='replace')
 
 	@property
 	def textLine(self) -> str:
-		"""Read a sequence of chars until the next new line char."""
-		ret = self._readUntil("\n", self.stringEncoding)
-		if ret[-1] == "\r":
+		'''Read a sequence of chars until the next new line char'''
+		ret = self._readUntil('\n', self.stringEncoding)
+		if ret[-1] == '\r':
 			ret = ret[-1]
 		return ret
 
 	@textLine.setter
 	def textLine(self, text: str):
-		"""Set a sequence of chars until the next new line char."""
+		'''Set a sequence of chars until the next new line char'''
 		self.setBytes(text)
-		if isinstance(text, (int, float)) or text[-1] != "\n":
-			self.setBytes("\n")
+		if isinstance(text, (int, float)) or text[-1] != '\n':
+			self.setBytes('\n')
 
 	@property
 	def textLineA(self) -> str:
-		"""Read a sequence of chars until the next new line char in ascii."""
-		ret = self._readUntil("\n", "A")
-		if ret[-1] == "\r":
+		'''Read a sequence of chars until the next new line char in ascii'''
+		ret = self._readUntil('\n', 'A')
+		if ret[-1] == '\r':
 			ret = ret[-1]
 		return ret
 
 	@textLineA.setter
 	def textLineA(self, text: str):
-		"""Set a sequence of chars until the next new line char in ascii."""
+		'''Set a sequence of chars until the next new line char in ascii'''
 		self.setBytes(text)
-		if isinstance(text, (int, float)) or text[-1] != "\n":
-			self.setBytes("\n")
+		if isinstance(text, (int, float)) or text[-1] != '\n':
+			self.setBytes('\n')
 
 	@property
 	def textLineW(self) -> str:
-		"""Read a sequence of chars until the next new line char in ucs-2."""
-		ret = self._readUntil("\n", "W")
-		if ret[-1] == "\r":
+		'''Read a sequence of chars until the next new line char in ucs-2'''
+		ret = self._readUntil('\n', 'W')
+		if ret[-1] == '\r':
 			ret = ret[-1]
 		return ret
 
 	@textLineW.setter
 	def textLineW(self, text: str):
-		"""Set a sequence of chars until the next new line char in ucs-2."""
+		'''Set a sequence of chars until the next new line char in ucs-2'''
 		self.setBytes(text)
-		if isinstance(text, (int, float)) or text[-1] != "\n":
-			self.setBytes("\0\n")
+		if isinstance(text, (int, float)) or text[-1] != '\n':
+			self.setBytes('\0\n')
 
 	@property
 	def textLineU(self) -> str:
-		"""Read a sequence of chars until the next new line char in utf-8."""
-		ret = self._readUntil("\n", "U")
-		if ret[-1] == "\r":
+		'''Read a sequence of chars until the next new line char in utf-8'''
+		ret = self._readUntil('\n', 'U')
+		if ret[-1] == '\r':
 			ret = ret[-1]
 		return ret
 
 	@textLineU.setter
 	def textLineU(self, text: str):
-		"""Set a sequence of chars until the next new line char in utf-8."""
+		'''Set a sequence of chars until the next new line char in utf-8'''
 		self.setBytes(text)
-		if isinstance(text, (int, float)) or text[-1] != "\n":
-			self.setBytes("\n")
+		if isinstance(text, (int, float)) or text[-1] != '\n':
+			self.setBytes('\n')
 
 	@property
 	def cString(self) -> str:
-		"""Read a sequence of chars until the next null byte."""
-		return self._readUntil("\0", self.stringEncoding)
+		'''Read a sequence of chars until the next null byte'''
+		return self._readUntil('\0', self.stringEncoding)
 
 	@cString.setter
 	def cString(self, text: str):
-		"""Set a sequence of chars and add a null byte."""
+		"""Set a sequence of chars and add a null byte """
 		self.setBytes(text)
-		self.setBytes("\0")
+		self.setBytes('\0')
 
 	@property
 	def cStringA(self) -> str:
-		"""Read a sequence of chars until the next null byte in ascii."""
-		return self._readUntil("\0", "A")
+		'''Read a sequence of chars until the next null byte in ascii'''
+		return self._readUntil('\0', 'A')
 
 	@cStringA.setter
 	def cStringA(self, text: str):
-		"""Set a sequence of chars and add a null byte in ascii."""
+		"""Set a sequence of chars and add a null byte in ascii"""
 		self.setBytes(text)
-		self.setBytes("\0")
+		self.setBytes('\0')
 
 	@property
 	def cStringW(self) -> str:
-		"""Read a sequence of chars until the next null byte in ucs-2."""
-		return self._readUntil("\0", "W")
+		'''Read a sequence of chars until the next null byte in ucs-2'''
+		return self._readUntil('\0', 'W')
 
 	@cStringW.setter
 	def cStringW(self, text: str):
-		"""Set a sequence of chars and add a null byte in ucs-2."""
+		"""Set a sequence of chars and add a null byte in ucs-2"""
 		self.setBytes(text)
-		self.setBytes("\0\0")
+		self.setBytes('\0\0')
 
 	@property
 	def cStringU(self) -> str:
-		"""Read a sequence of chars until the next null byte in utf-8."""
-		return self._readUntil("\0", "U")
+		'''Read a sequence of chars until the next null byte in utf-8'''
+		return self._readUntil('\0', 'U')
 
 	@cStringU.setter
 	def cStringU(self, text: str):
-		"""Set a sequence of chars and add a null byte in utf-8."""
+		"""Set a sequence of chars and add a null byte in utf-8"""
 		self.setBytes(text)
-		self.setBytes("\0")
+		self.setBytes('\0')
