@@ -1,10 +1,10 @@
-# binaryiotools
+# Binaryiotools
 
-> Auto-generated documentation for [binaryiotools](../../binaryiotools/__init__.py) module.
+> Auto-generated documentation for [binaryiotools](../../../binaryiotools/__init__.py) module.
 
 Base binary I/O helper.
 
-- [Binaryiotools](../README.md#binaryiotools-index) / [Modules](../README.md#binaryiotools-modules) / binaryiotools
+- [Binaryiotools](../README.md#binaryiotools-index) / [Modules](../MODULES.md#binaryiotools-modules) / Binaryiotools
     - [IO](#io)
         - [IO().\_\_getitem\_\_](#io__getitem__)
         - [IO().\_\_len\_\_](#io__len__)
@@ -160,7 +160,7 @@ The values for width and height would be 200, 400
 
 ## IO
 
-[[find in source code]](../../binaryiotools/__init__.py#L36)
+[[find in source code]](../../../binaryiotools/__init__.py#L36)
 
 ```python
 class IO():
@@ -177,7 +177,7 @@ Class to handle i/o to a byte buffer or file-like object.
 
 ### IO().\_\_getitem\_\_
 
-[[find in source code]](../../binaryiotools/__init__.py#L68)
+[[find in source code]](../../../binaryiotools/__init__.py#L68)
 
 ```python
 def __getitem__(idx: int):
@@ -187,7 +187,7 @@ Get data at a specific idx.
 
 ### IO().\_\_len\_\_
 
-[[find in source code]](../../binaryiotools/__init__.py#L64)
+[[find in source code]](../../../binaryiotools/__init__.py#L64)
 
 ```python
 def __len__() -> int:
@@ -197,7 +197,7 @@ Length of data.
 
 ### IO().addBytes
 
-[[find in source code]](../../binaryiotools/__init__.py#L658)
+[[find in source code]](../../../binaryiotools/__init__.py#L658)
 
 ```python
 def addBytes(ioBytes: Any):
@@ -213,7 +213,7 @@ alias for setBytes()
 
 ### IO().beginContext
 
-[[find in source code]](../../binaryiotools/__init__.py#L94)
+[[find in source code]](../../../binaryiotools/__init__.py#L94)
 
 ```python
 def beginContext(newIndex: int):
@@ -225,7 +225,7 @@ and when endContext() is called, it will be restored to the current position
 
 ### IO().bool16
 
-[[find in source code]](../../binaryiotools/__init__.py#L172)
+[[find in source code]](../../../binaryiotools/__init__.py#L172)
 
 ```python
 @property
@@ -236,7 +236,7 @@ Get bool16.
 
 ### IO().bool16
 
-[[find in source code]](../../binaryiotools/__init__.py#L177)
+[[find in source code]](../../../binaryiotools/__init__.py#L177)
 
 ```python
 @bool16.setter
@@ -247,7 +247,7 @@ Set bool16.
 
 ### IO().bool32
 
-[[find in source code]](../../binaryiotools/__init__.py#L182)
+[[find in source code]](../../../binaryiotools/__init__.py#L182)
 
 ```python
 @property
@@ -258,7 +258,7 @@ Get bool32.
 
 ### IO().bool32
 
-[[find in source code]](../../binaryiotools/__init__.py#L187)
+[[find in source code]](../../../binaryiotools/__init__.py#L187)
 
 ```python
 @bool32.setter
@@ -269,7 +269,7 @@ Set bool32.
 
 ### IO().bool64
 
-[[find in source code]](../../binaryiotools/__init__.py#L192)
+[[find in source code]](../../../binaryiotools/__init__.py#L192)
 
 ```python
 @property
@@ -280,7 +280,7 @@ Get bool64.
 
 ### IO().bool64
 
-[[find in source code]](../../binaryiotools/__init__.py#L197)
+[[find in source code]](../../../binaryiotools/__init__.py#L197)
 
 ```python
 @bool64.setter
@@ -291,7 +291,7 @@ Set bool64.
 
 ### IO().bool8
 
-[[find in source code]](../../binaryiotools/__init__.py#L162)
+[[find in source code]](../../../binaryiotools/__init__.py#L162)
 
 ```python
 @property
@@ -302,7 +302,7 @@ Get bool8.
 
 ### IO().bool8
 
-[[find in source code]](../../binaryiotools/__init__.py#L167)
+[[find in source code]](../../../binaryiotools/__init__.py#L167)
 
 ```python
 @bool8.setter
@@ -313,7 +313,7 @@ Set a bool8.
 
 ### IO().boolean
 
-[[find in source code]](../../binaryiotools/__init__.py#L135)
+[[find in source code]](../../../binaryiotools/__init__.py#L135)
 
 ```python
 @property
@@ -324,7 +324,7 @@ Return bool.
 
 ### IO().boolean
 
-[[find in source code]](../../binaryiotools/__init__.py#L148)
+[[find in source code]](../../../binaryiotools/__init__.py#L148)
 
 ```python
 @boolean.setter
@@ -335,7 +335,7 @@ Set bool.
 
 ### IO().byte
 
-[[find in source code]](../../binaryiotools/__init__.py#L202)
+[[find in source code]](../../../binaryiotools/__init__.py#L202)
 
 ```python
 @property
@@ -346,7 +346,7 @@ Get byte.
 
 ### IO().byte
 
-[[find in source code]](../../binaryiotools/__init__.py#L207)
+[[find in source code]](../../../binaryiotools/__init__.py#L207)
 
 ```python
 @byte.setter
@@ -357,7 +357,7 @@ Set byte.
 
 ### IO().cString
 
-[[find in source code]](../../binaryiotools/__init__.py#L845)
+[[find in source code]](../../../binaryiotools/__init__.py#L845)
 
 ```python
 @property
@@ -368,7 +368,7 @@ Read a sequence of chars until the next null byte.
 
 ### IO().cString
 
-[[find in source code]](../../binaryiotools/__init__.py#L850)
+[[find in source code]](../../../binaryiotools/__init__.py#L850)
 
 ```python
 @cString.setter
@@ -379,7 +379,7 @@ Set a sequence of chars and add a null byte.
 
 ### IO().cStringA
 
-[[find in source code]](../../binaryiotools/__init__.py#L856)
+[[find in source code]](../../../binaryiotools/__init__.py#L856)
 
 ```python
 @property
@@ -390,7 +390,7 @@ Read a sequence of chars until the next null byte in ascii.
 
 ### IO().cStringA
 
-[[find in source code]](../../binaryiotools/__init__.py#L861)
+[[find in source code]](../../../binaryiotools/__init__.py#L861)
 
 ```python
 @cStringA.setter
@@ -401,7 +401,7 @@ Set a sequence of chars and add a null byte in ascii.
 
 ### IO().cStringU
 
-[[find in source code]](../../binaryiotools/__init__.py#L878)
+[[find in source code]](../../../binaryiotools/__init__.py#L878)
 
 ```python
 @property
@@ -412,7 +412,7 @@ Read a sequence of chars until the next null byte in utf-8.
 
 ### IO().cStringU
 
-[[find in source code]](../../binaryiotools/__init__.py#L883)
+[[find in source code]](../../../binaryiotools/__init__.py#L883)
 
 ```python
 @cStringU.setter
@@ -423,7 +423,7 @@ Set a sequence of chars and add a null byte in utf-8.
 
 ### IO().cStringW
 
-[[find in source code]](../../binaryiotools/__init__.py#L867)
+[[find in source code]](../../../binaryiotools/__init__.py#L867)
 
 ```python
 @property
@@ -434,7 +434,7 @@ Read a sequence of chars until the next null byte in ucs-2.
 
 ### IO().cStringW
 
-[[find in source code]](../../binaryiotools/__init__.py#L872)
+[[find in source code]](../../../binaryiotools/__init__.py#L872)
 
 ```python
 @cStringW.setter
@@ -445,7 +445,7 @@ Set a sequence of chars and add a null byte in ucs-2.
 
 ### IO().data
 
-[[find in source code]](../../binaryiotools/__init__.py#L72)
+[[find in source code]](../../../binaryiotools/__init__.py#L72)
 
 ```python
 @property
@@ -456,7 +456,7 @@ Return data.
 
 ### IO().data
 
-[[find in source code]](../../binaryiotools/__init__.py#L77)
+[[find in source code]](../../../binaryiotools/__init__.py#L77)
 
 ```python
 @data.setter
@@ -467,7 +467,7 @@ Set data.
 
 ### IO().double
 
-[[find in source code]](../../binaryiotools/__init__.py#L602)
+[[find in source code]](../../../binaryiotools/__init__.py#L602)
 
 ```python
 @property
@@ -478,7 +478,7 @@ Get a double.
 
 ### IO().double
 
-[[find in source code]](../../binaryiotools/__init__.py#L607)
+[[find in source code]](../../../binaryiotools/__init__.py#L607)
 
 ```python
 @double.setter
@@ -489,7 +489,7 @@ Set a double.
 
 ### IO().dword
 
-[[find in source code]](../../binaryiotools/__init__.py#L242)
+[[find in source code]](../../../binaryiotools/__init__.py#L242)
 
 ```python
 @property
@@ -500,7 +500,7 @@ Get a dword.
 
 ### IO().dword
 
-[[find in source code]](../../binaryiotools/__init__.py#L247)
+[[find in source code]](../../../binaryiotools/__init__.py#L247)
 
 ```python
 @dword.setter
@@ -511,7 +511,7 @@ Set a dword.
 
 ### IO().endContext
 
-[[find in source code]](../../binaryiotools/__init__.py#L101)
+[[find in source code]](../../../binaryiotools/__init__.py#L101)
 
 ```python
 def endContext():
@@ -521,7 +521,7 @@ Restore the index to the previous location where it was when	beginContext() was 
 
 ### IO().float32
 
-[[find in source code]](../../binaryiotools/__init__.py#L402)
+[[find in source code]](../../../binaryiotools/__init__.py#L402)
 
 ```python
 @property
@@ -532,7 +532,7 @@ Get a float32.
 
 ### IO().float32
 
-[[find in source code]](../../binaryiotools/__init__.py#L409)
+[[find in source code]](../../../binaryiotools/__init__.py#L409)
 
 ```python
 @float32.setter
@@ -543,7 +543,7 @@ Set a float32.
 
 ### IO().float32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L612)
+[[find in source code]](../../../binaryiotools/__init__.py#L612)
 
 ```python
 @property
@@ -554,7 +554,7 @@ Read the next 32 bit float and advance the index.
 
 ### IO().float32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L617)
+[[find in source code]](../../../binaryiotools/__init__.py#L617)
 
 ```python
 @float32be.setter
@@ -565,7 +565,7 @@ Set a 32 bit float.
 
 ### IO().float32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L622)
+[[find in source code]](../../../binaryiotools/__init__.py#L622)
 
 ```python
 @property
@@ -576,7 +576,7 @@ Read the next 32 bit float and advance the index.
 
 ### IO().float32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L627)
+[[find in source code]](../../../binaryiotools/__init__.py#L627)
 
 ```python
 @float32le.setter
@@ -587,7 +587,7 @@ Set a 32 bit float.
 
 ### IO().float64
 
-[[find in source code]](../../binaryiotools/__init__.py#L417)
+[[find in source code]](../../../binaryiotools/__init__.py#L417)
 
 ```python
 @property
@@ -598,7 +598,7 @@ Get a float64.
 
 ### IO().float64
 
-[[find in source code]](../../binaryiotools/__init__.py#L424)
+[[find in source code]](../../../binaryiotools/__init__.py#L424)
 
 ```python
 @float64.setter
@@ -609,7 +609,7 @@ Set a float64.
 
 ### IO().float64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L632)
+[[find in source code]](../../../binaryiotools/__init__.py#L632)
 
 ```python
 @property
@@ -620,7 +620,7 @@ Read the next 64 bit float and advance the index.
 
 ### IO().float64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L637)
+[[find in source code]](../../../binaryiotools/__init__.py#L637)
 
 ```python
 @float64be.setter
@@ -631,7 +631,7 @@ Set a 64 bit float.
 
 ### IO().float64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L642)
+[[find in source code]](../../../binaryiotools/__init__.py#L642)
 
 ```python
 @property
@@ -642,7 +642,7 @@ Read the next 64 bit float and advance the index.
 
 ### IO().float64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L647)
+[[find in source code]](../../../binaryiotools/__init__.py#L647)
 
 ```python
 @float64le.setter
@@ -653,7 +653,7 @@ Set a 64 bit float.
 
 ### IO().floating
 
-[[find in source code]](../../binaryiotools/__init__.py#L592)
+[[find in source code]](../../../binaryiotools/__init__.py#L592)
 
 ```python
 @property
@@ -664,7 +664,7 @@ Get a float.
 
 ### IO().floating
 
-[[find in source code]](../../binaryiotools/__init__.py#L597)
+[[find in source code]](../../../binaryiotools/__init__.py#L597)
 
 ```python
 @floating.setter
@@ -675,7 +675,7 @@ Set a float.
 
 ### IO().getBytes
 
-[[find in source code]](../../binaryiotools/__init__.py#L652)
+[[find in source code]](../../../binaryiotools/__init__.py#L652)
 
 ```python
 def getBytes(nbytes: int):
@@ -685,7 +685,7 @@ Grab some raw bytes and advance the index.
 
 ### IO().i16
 
-[[find in source code]](../../binaryiotools/__init__.py#L312)
+[[find in source code]](../../../binaryiotools/__init__.py#L312)
 
 ```python
 @property
@@ -696,7 +696,7 @@ Get an int16.
 
 ### IO().i16
 
-[[find in source code]](../../binaryiotools/__init__.py#L319)
+[[find in source code]](../../../binaryiotools/__init__.py#L319)
 
 ```python
 @i16.setter
@@ -707,7 +707,7 @@ Set an int16.
 
 ### IO().i16be
 
-[[find in source code]](../../binaryiotools/__init__.py#L502)
+[[find in source code]](../../../binaryiotools/__init__.py#L502)
 
 ```python
 @property
@@ -718,7 +718,7 @@ Read the next signed int16 and advance the index.
 
 ### IO().i16be
 
-[[find in source code]](../../binaryiotools/__init__.py#L507)
+[[find in source code]](../../../binaryiotools/__init__.py#L507)
 
 ```python
 @i16be.setter
@@ -729,7 +729,7 @@ Set the int16.
 
 ### IO().i16le
 
-[[find in source code]](../../binaryiotools/__init__.py#L492)
+[[find in source code]](../../../binaryiotools/__init__.py#L492)
 
 ```python
 @property
@@ -740,7 +740,7 @@ Read the next signed int16 and advance the index.
 
 ### IO().i16le
 
-[[find in source code]](../../binaryiotools/__init__.py#L497)
+[[find in source code]](../../../binaryiotools/__init__.py#L497)
 
 ```python
 @i16le.setter
@@ -751,7 +751,7 @@ Set the int16.
 
 ### IO().i32
 
-[[find in source code]](../../binaryiotools/__init__.py#L342)
+[[find in source code]](../../../binaryiotools/__init__.py#L342)
 
 ```python
 @property
@@ -762,7 +762,7 @@ Get an int32.
 
 ### IO().i32
 
-[[find in source code]](../../binaryiotools/__init__.py#L349)
+[[find in source code]](../../../binaryiotools/__init__.py#L349)
 
 ```python
 @i32.setter
@@ -773,7 +773,7 @@ Set an int32.
 
 ### IO().i32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L542)
+[[find in source code]](../../../binaryiotools/__init__.py#L542)
 
 ```python
 @property
@@ -784,7 +784,7 @@ Read the next signed int32 and advance the index.
 
 ### IO().i32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L547)
+[[find in source code]](../../../binaryiotools/__init__.py#L547)
 
 ```python
 @i32be.setter
@@ -795,7 +795,7 @@ Set the int32.
 
 ### IO().i32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L532)
+[[find in source code]](../../../binaryiotools/__init__.py#L532)
 
 ```python
 @property
@@ -806,7 +806,7 @@ Read the next signed int32 and advance the index.
 
 ### IO().i32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L537)
+[[find in source code]](../../../binaryiotools/__init__.py#L537)
 
 ```python
 @i32le.setter
@@ -817,7 +817,7 @@ Set the int32.
 
 ### IO().i64
 
-[[find in source code]](../../binaryiotools/__init__.py#L372)
+[[find in source code]](../../../binaryiotools/__init__.py#L372)
 
 ```python
 @property
@@ -828,7 +828,7 @@ Get an int64.
 
 ### IO().i64
 
-[[find in source code]](../../binaryiotools/__init__.py#L379)
+[[find in source code]](../../../binaryiotools/__init__.py#L379)
 
 ```python
 @i64.setter
@@ -839,7 +839,7 @@ Set an int64.
 
 ### IO().i64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L582)
+[[find in source code]](../../../binaryiotools/__init__.py#L582)
 
 ```python
 @property
@@ -850,7 +850,7 @@ Read the next signed int64 and advance the index.
 
 ### IO().i64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L587)
+[[find in source code]](../../../binaryiotools/__init__.py#L587)
 
 ```python
 @i64be.setter
@@ -861,7 +861,7 @@ Set the int64.
 
 ### IO().i64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L572)
+[[find in source code]](../../../binaryiotools/__init__.py#L572)
 
 ```python
 @property
@@ -872,7 +872,7 @@ Read the next signed int64 and advance the index.
 
 ### IO().i64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L577)
+[[find in source code]](../../../binaryiotools/__init__.py#L577)
 
 ```python
 @i64le.setter
@@ -883,7 +883,7 @@ Set the int64.
 
 ### IO().i8
 
-[[find in source code]](../../binaryiotools/__init__.py#L282)
+[[find in source code]](../../../binaryiotools/__init__.py#L282)
 
 ```python
 @property
@@ -894,7 +894,7 @@ Get an int8.
 
 ### IO().i8
 
-[[find in source code]](../../binaryiotools/__init__.py#L289)
+[[find in source code]](../../../binaryiotools/__init__.py#L289)
 
 ```python
 @i8.setter
@@ -905,7 +905,7 @@ Set an int8.
 
 ### IO().i8be
 
-[[find in source code]](../../binaryiotools/__init__.py#L462)
+[[find in source code]](../../../binaryiotools/__init__.py#L462)
 
 ```python
 @property
@@ -916,7 +916,7 @@ Read the next signed int8 and advance the index.
 
 ### IO().i8be
 
-[[find in source code]](../../binaryiotools/__init__.py#L467)
+[[find in source code]](../../../binaryiotools/__init__.py#L467)
 
 ```python
 @i8be.setter
@@ -927,7 +927,7 @@ Set the int8.
 
 ### IO().i8le
 
-[[find in source code]](../../binaryiotools/__init__.py#L452)
+[[find in source code]](../../../binaryiotools/__init__.py#L452)
 
 ```python
 @property
@@ -938,7 +938,7 @@ Read the next signed int8 and advance the index.
 
 ### IO().i8le
 
-[[find in source code]](../../binaryiotools/__init__.py#L457)
+[[find in source code]](../../../binaryiotools/__init__.py#L457)
 
 ```python
 @i8le.setter
@@ -949,7 +949,7 @@ Set the int8.
 
 ### IO().index
 
-[[find in source code]](../../binaryiotools/__init__.py#L84)
+[[find in source code]](../../../binaryiotools/__init__.py#L84)
 
 ```python
 @property
@@ -960,7 +960,7 @@ Return data.
 
 ### IO().index
 
-[[find in source code]](../../binaryiotools/__init__.py#L89)
+[[find in source code]](../../../binaryiotools/__init__.py#L89)
 
 ```python
 @index.setter
@@ -971,7 +971,7 @@ Set index.
 
 ### IO().qword
 
-[[find in source code]](../../binaryiotools/__init__.py#L262)
+[[find in source code]](../../../binaryiotools/__init__.py#L262)
 
 ```python
 @property
@@ -982,7 +982,7 @@ Get a qword.
 
 ### IO().qword
 
-[[find in source code]](../../binaryiotools/__init__.py#L267)
+[[find in source code]](../../../binaryiotools/__init__.py#L267)
 
 ```python
 @qword.setter
@@ -993,7 +993,7 @@ Set a qword.
 
 ### IO().setBytes
 
-[[find in source code]](../../binaryiotools/__init__.py#L667)
+[[find in source code]](../../../binaryiotools/__init__.py#L667)
 
 ```python
 def setBytes(ioBytes: Any):
@@ -1009,7 +1009,7 @@ alias for addBytes()
 
 ### IO().sz754
 
-[[find in source code]](../../binaryiotools/__init__.py#L717)
+[[find in source code]](../../../binaryiotools/__init__.py#L717)
 
 ```python
 @property
@@ -1020,7 +1020,7 @@ sz754.
 
 ### IO().sz754
 
-[[find in source code]](../../binaryiotools/__init__.py#L722)
+[[find in source code]](../../../binaryiotools/__init__.py#L722)
 
 ```python
 @sz754.setter
@@ -1031,7 +1031,7 @@ Set sz754.
 
 ### IO().sz754A
 
-[[find in source code]](../../binaryiotools/__init__.py#L727)
+[[find in source code]](../../../binaryiotools/__init__.py#L727)
 
 ```python
 @property
@@ -1042,7 +1042,7 @@ sz754A.
 
 ### IO().sz754A
 
-[[find in source code]](../../binaryiotools/__init__.py#L732)
+[[find in source code]](../../../binaryiotools/__init__.py#L732)
 
 ```python
 @sz754A.setter
@@ -1053,7 +1053,7 @@ Set sz754A.
 
 ### IO().sz754U
 
-[[find in source code]](../../binaryiotools/__init__.py#L747)
+[[find in source code]](../../../binaryiotools/__init__.py#L747)
 
 ```python
 @property
@@ -1064,7 +1064,7 @@ sz754U.
 
 ### IO().sz754U
 
-[[find in source code]](../../binaryiotools/__init__.py#L752)
+[[find in source code]](../../../binaryiotools/__init__.py#L752)
 
 ```python
 @sz754U.setter
@@ -1075,7 +1075,7 @@ Set sz754U.
 
 ### IO().sz754W
 
-[[find in source code]](../../binaryiotools/__init__.py#L737)
+[[find in source code]](../../../binaryiotools/__init__.py#L737)
 
 ```python
 @property
@@ -1086,7 +1086,7 @@ sz754W.
 
 ### IO().sz754W
 
-[[find in source code]](../../binaryiotools/__init__.py#L742)
+[[find in source code]](../../../binaryiotools/__init__.py#L742)
 
 ```python
 @sz754W.setter
@@ -1097,7 +1097,7 @@ Set sz754W.
 
 ### IO().textLine
 
-[[find in source code]](../../binaryiotools/__init__.py#L785)
+[[find in source code]](../../../binaryiotools/__init__.py#L785)
 
 ```python
 @property
@@ -1108,7 +1108,7 @@ Read a sequence of chars until the next new line char.
 
 ### IO().textLine
 
-[[find in source code]](../../binaryiotools/__init__.py#L793)
+[[find in source code]](../../../binaryiotools/__init__.py#L793)
 
 ```python
 @textLine.setter
@@ -1119,7 +1119,7 @@ Set a sequence of chars until the next new line char.
 
 ### IO().textLineA
 
-[[find in source code]](../../binaryiotools/__init__.py#L800)
+[[find in source code]](../../../binaryiotools/__init__.py#L800)
 
 ```python
 @property
@@ -1130,7 +1130,7 @@ Read a sequence of chars until the next new line char in ascii.
 
 ### IO().textLineA
 
-[[find in source code]](../../binaryiotools/__init__.py#L808)
+[[find in source code]](../../../binaryiotools/__init__.py#L808)
 
 ```python
 @textLineA.setter
@@ -1141,7 +1141,7 @@ Set a sequence of chars until the next new line char in ascii.
 
 ### IO().textLineU
 
-[[find in source code]](../../binaryiotools/__init__.py#L830)
+[[find in source code]](../../../binaryiotools/__init__.py#L830)
 
 ```python
 @property
@@ -1152,7 +1152,7 @@ Read a sequence of chars until the next new line char in utf-8.
 
 ### IO().textLineU
 
-[[find in source code]](../../binaryiotools/__init__.py#L838)
+[[find in source code]](../../../binaryiotools/__init__.py#L838)
 
 ```python
 @textLineU.setter
@@ -1163,7 +1163,7 @@ Set a sequence of chars until the next new line char in utf-8.
 
 ### IO().textLineW
 
-[[find in source code]](../../binaryiotools/__init__.py#L815)
+[[find in source code]](../../../binaryiotools/__init__.py#L815)
 
 ```python
 @property
@@ -1174,7 +1174,7 @@ Read a sequence of chars until the next new line char in ucs-2.
 
 ### IO().textLineW
 
-[[find in source code]](../../binaryiotools/__init__.py#L823)
+[[find in source code]](../../../binaryiotools/__init__.py#L823)
 
 ```python
 @textLineW.setter
@@ -1185,7 +1185,7 @@ Set a sequence of chars until the next new line char in ucs-2.
 
 ### IO().u16
 
-[[find in source code]](../../binaryiotools/__init__.py#L327)
+[[find in source code]](../../../binaryiotools/__init__.py#L327)
 
 ```python
 @property
@@ -1196,7 +1196,7 @@ Get an uint16.
 
 ### IO().u16
 
-[[find in source code]](../../binaryiotools/__init__.py#L334)
+[[find in source code]](../../../binaryiotools/__init__.py#L334)
 
 ```python
 @u16.setter
@@ -1207,7 +1207,7 @@ Set an unint16.
 
 ### IO().u16be
 
-[[find in source code]](../../binaryiotools/__init__.py#L472)
+[[find in source code]](../../../binaryiotools/__init__.py#L472)
 
 ```python
 @property
@@ -1218,7 +1218,7 @@ Read the next uint16 and advance the index.
 
 ### IO().u16be
 
-[[find in source code]](../../binaryiotools/__init__.py#L477)
+[[find in source code]](../../../binaryiotools/__init__.py#L477)
 
 ```python
 @u16be.setter
@@ -1229,7 +1229,7 @@ Set the uint16.
 
 ### IO().u16le
 
-[[find in source code]](../../binaryiotools/__init__.py#L482)
+[[find in source code]](../../../binaryiotools/__init__.py#L482)
 
 ```python
 @property
@@ -1240,7 +1240,7 @@ Read the next uint16 and advance the index.
 
 ### IO().u16le
 
-[[find in source code]](../../binaryiotools/__init__.py#L487)
+[[find in source code]](../../../binaryiotools/__init__.py#L487)
 
 ```python
 @u16le.setter
@@ -1251,7 +1251,7 @@ Set the uint16.
 
 ### IO().u32
 
-[[find in source code]](../../binaryiotools/__init__.py#L357)
+[[find in source code]](../../../binaryiotools/__init__.py#L357)
 
 ```python
 @property
@@ -1262,7 +1262,7 @@ Get a uint32.
 
 ### IO().u32
 
-[[find in source code]](../../binaryiotools/__init__.py#L364)
+[[find in source code]](../../../binaryiotools/__init__.py#L364)
 
 ```python
 @u32.setter
@@ -1273,7 +1273,7 @@ Set a unint32.
 
 ### IO().u32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L512)
+[[find in source code]](../../../binaryiotools/__init__.py#L512)
 
 ```python
 @property
@@ -1284,7 +1284,7 @@ Read the next uint32 and advance the index.
 
 ### IO().u32be
 
-[[find in source code]](../../binaryiotools/__init__.py#L517)
+[[find in source code]](../../../binaryiotools/__init__.py#L517)
 
 ```python
 @u32be.setter
@@ -1295,7 +1295,7 @@ Set the uint32.
 
 ### IO().u32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L522)
+[[find in source code]](../../../binaryiotools/__init__.py#L522)
 
 ```python
 @property
@@ -1306,7 +1306,7 @@ Read the next uint32 and advance the index.
 
 ### IO().u32le
 
-[[find in source code]](../../binaryiotools/__init__.py#L527)
+[[find in source code]](../../../binaryiotools/__init__.py#L527)
 
 ```python
 @u32le.setter
@@ -1317,7 +1317,7 @@ Set the uint32.
 
 ### IO().u64
 
-[[find in source code]](../../binaryiotools/__init__.py#L387)
+[[find in source code]](../../../binaryiotools/__init__.py#L387)
 
 ```python
 @property
@@ -1328,7 +1328,7 @@ Get a uint64.
 
 ### IO().u64
 
-[[find in source code]](../../binaryiotools/__init__.py#L394)
+[[find in source code]](../../../binaryiotools/__init__.py#L394)
 
 ```python
 @u64.setter
@@ -1339,7 +1339,7 @@ Set a uint64.
 
 ### IO().u64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L552)
+[[find in source code]](../../../binaryiotools/__init__.py#L552)
 
 ```python
 @property
@@ -1350,7 +1350,7 @@ Read the next uint64 and advance the index.
 
 ### IO().u64be
 
-[[find in source code]](../../binaryiotools/__init__.py#L557)
+[[find in source code]](../../../binaryiotools/__init__.py#L557)
 
 ```python
 @u64be.setter
@@ -1361,7 +1361,7 @@ Set the uint64.
 
 ### IO().u64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L562)
+[[find in source code]](../../../binaryiotools/__init__.py#L562)
 
 ```python
 @property
@@ -1372,7 +1372,7 @@ Read the next uint64 and advance the index.
 
 ### IO().u64le
 
-[[find in source code]](../../binaryiotools/__init__.py#L567)
+[[find in source code]](../../../binaryiotools/__init__.py#L567)
 
 ```python
 @u64le.setter
@@ -1383,7 +1383,7 @@ Set the uint64.
 
 ### IO().u8
 
-[[find in source code]](../../binaryiotools/__init__.py#L297)
+[[find in source code]](../../../binaryiotools/__init__.py#L297)
 
 ```python
 @property
@@ -1394,7 +1394,7 @@ Get an unsigned int.
 
 ### IO().u8
 
-[[find in source code]](../../binaryiotools/__init__.py#L304)
+[[find in source code]](../../../binaryiotools/__init__.py#L304)
 
 ```python
 @u8.setter
@@ -1405,7 +1405,7 @@ Set an unsigned int.
 
 ### IO().u8be
 
-[[find in source code]](../../binaryiotools/__init__.py#L432)
+[[find in source code]](../../../binaryiotools/__init__.py#L432)
 
 ```python
 @property
@@ -1416,7 +1416,7 @@ Read the next uint8 and advance the index.
 
 ### IO().u8be
 
-[[find in source code]](../../binaryiotools/__init__.py#L437)
+[[find in source code]](../../../binaryiotools/__init__.py#L437)
 
 ```python
 @u8be.setter
@@ -1427,7 +1427,7 @@ Set the uint8.
 
 ### IO().u8le
 
-[[find in source code]](../../binaryiotools/__init__.py#L442)
+[[find in source code]](../../../binaryiotools/__init__.py#L442)
 
 ```python
 @property
@@ -1438,7 +1438,7 @@ Read the next uint8 and advance the index.
 
 ### IO().u8le
 
-[[find in source code]](../../binaryiotools/__init__.py#L447)
+[[find in source code]](../../../binaryiotools/__init__.py#L447)
 
 ```python
 @u8le.setter
@@ -1449,7 +1449,7 @@ Set the uint8.
 
 ### IO().unsignedByte
 
-[[find in source code]](../../binaryiotools/__init__.py#L212)
+[[find in source code]](../../../binaryiotools/__init__.py#L212)
 
 ```python
 @property
@@ -1460,7 +1460,7 @@ Get unsigned byte.
 
 ### IO().unsignedByte
 
-[[find in source code]](../../binaryiotools/__init__.py#L217)
+[[find in source code]](../../../binaryiotools/__init__.py#L217)
 
 ```python
 @unsignedByte.setter
@@ -1471,7 +1471,7 @@ Set unsigned byte.
 
 ### IO().unsignedDword
 
-[[find in source code]](../../binaryiotools/__init__.py#L252)
+[[find in source code]](../../../binaryiotools/__init__.py#L252)
 
 ```python
 @property
@@ -1482,7 +1482,7 @@ Get a unsigned dword.
 
 ### IO().unsignedDword
 
-[[find in source code]](../../binaryiotools/__init__.py#L257)
+[[find in source code]](../../../binaryiotools/__init__.py#L257)
 
 ```python
 @unsignedDword.setter
@@ -1493,7 +1493,7 @@ Set an unsigned dword.
 
 ### IO().unsignedQword
 
-[[find in source code]](../../binaryiotools/__init__.py#L272)
+[[find in source code]](../../../binaryiotools/__init__.py#L272)
 
 ```python
 @property
@@ -1504,7 +1504,7 @@ Get an unsigned qword.
 
 ### IO().unsignedQword
 
-[[find in source code]](../../binaryiotools/__init__.py#L277)
+[[find in source code]](../../../binaryiotools/__init__.py#L277)
 
 ```python
 @unsignedQword.setter
@@ -1515,7 +1515,7 @@ Set an unsigned qword.
 
 ### IO().unsignedWord
 
-[[find in source code]](../../binaryiotools/__init__.py#L232)
+[[find in source code]](../../../binaryiotools/__init__.py#L232)
 
 ```python
 @property
@@ -1526,7 +1526,7 @@ Get an unsigned word.
 
 ### IO().unsignedWord
 
-[[find in source code]](../../binaryiotools/__init__.py#L237)
+[[find in source code]](../../../binaryiotools/__init__.py#L237)
 
 ```python
 @unsignedWord.setter
@@ -1537,7 +1537,7 @@ Set an unsigned word.
 
 ### IO().word
 
-[[find in source code]](../../binaryiotools/__init__.py#L222)
+[[find in source code]](../../../binaryiotools/__init__.py#L222)
 
 ```python
 @property
@@ -1548,7 +1548,7 @@ Get a word.
 
 ### IO().word
 
-[[find in source code]](../../binaryiotools/__init__.py#L227)
+[[find in source code]](../../../binaryiotools/__init__.py#L227)
 
 ```python
 @word.setter
