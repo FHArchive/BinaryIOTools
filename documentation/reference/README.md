@@ -1,8 +1,7 @@
-# Binaryiotools Modules
+# Binaryiotools Index
 
-> Auto-generated documentation modules index.
+> Auto-generated documentation index.
 
-Full list of [Binaryiotools](README.md#binaryiotools-index) project modules.
+A full list of `Binaryiotools` project modules.
 
-- [Binaryiotools Index](README.md#binaryiotools-index)
 - [Binaryiotools](binaryiotools/index.md#binaryiotools)
